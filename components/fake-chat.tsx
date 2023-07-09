@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import Typography from "@/components/ui/typography";
 import Image from "next/image";
 import {
@@ -14,6 +13,8 @@ import Globe from "@/components/ui/globe";
 import CategoryChip from "@/components/ui/category-chip";
 import { HTMLProps, useEffect, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/utils/cn";
+import CategoryCircle from "@/components/ui/category-circle";
 
 function Organization({ value }: { value: string }) {
   return (
@@ -21,10 +22,7 @@ function Organization({ value }: { value: string }) {
       <AccordionTrigger className="flex gap-2 items-center">
         <Image src="/cow-swap.svg" alt="cow-swap" width={40} height={40} />
         <div className="flex flex-col items-start flex-1">
-          <Typography
-            variant="chat-text"
-            className="text-gray-700 leading-6 font-medium"
-          >
+          <Typography variant="chat-text" className="text-gray-700 leading-6 font-medium">
             Cow Swap
           </Typography>
           <Typography className="text-orange underline flex gap-2" asChild>
@@ -49,25 +47,21 @@ function AirdropAction({ value }: { value: string }) {
       <AccordionTrigger>
         <div className="flex gap-2 items-center justify-between flex-1">
           <div className="flex gap-2 items-center">
-            <Typography
-              variant="chat-text"
-              className="text-gray-700 leading-6 font-medium inline"
-            >
+            <Typography variant="chat-text" className="text-gray-700 leading-6 font-medium inline">
               Airdrop
             </Typography>
             <Typography className="inline leading-[24px] font-[350] text-gray-400 text-sm">
               (Merkle Drop)
             </Typography>
           </div>
-          <div className="w-8 h-8 border-2 border-white bg-yellow rounded-full shadow-circle mr-4" />
+          <CategoryCircle variant="value-allocation" className=" mr-4" />
         </div>
       </AccordionTrigger>
       <AccordionContent className="border-t-0 pt-0">
         <div>
           <Typography className="text-gray-700 font-normal leading-[150%] py-4 border-y border-divider">
-            A distribution mechanism where tokens are given away for free to a
-            specific group of people or randomly to anyone who meets certain
-            criteria...
+            A distribution mechanism where tokens are given away for free to a specific group of
+            people or randomly to anyone who meets certain criteria...
           </Typography>
           <CategoryChip variant="value-allocation" className="mt-4" />
         </div>
@@ -81,24 +75,20 @@ function StakingGauge({ value }: { value: string }) {
     <AccordionItem value={value}>
       <AccordionTrigger>
         <div className="flex gap-2 items-center justify-between flex-1">
-          <Typography
-            variant="chat-text"
-            className="text-gray-700 leading-6 font-medium inline"
-          >
+          <Typography variant="chat-text" className="text-gray-700 leading-6 font-medium inline">
             Staking Gauges
           </Typography>
           <div className="flex  mr-4">
-            <div className="w-8 h-8 border-2 border-white bg-yellow rounded-full shadow-circle z-[1] -mr-2" />
-            <div className="w-8 h-8 border-2 border-white bg-teal rounded-full shadow-circle z-[2]" />
+            <CategoryCircle variant="value-allocation" className="z-[1] -mr-2" />
+            <CategoryCircle variant="budgeting" className="z-[2]" />
           </div>
         </div>
       </AccordionTrigger>
       <AccordionContent className="border-t-0 pt-0">
         <div>
           <Typography className="text-gray-700 font-normal leading-[150%] py-4 border-y border-divider">
-            A distribution mechanism where tokens are given away for free to a
-            specific group of people or randomly to anyone who meets certain
-            criteria...
+            A distribution mechanism where tokens are given away for free to a specific group of
+            people or randomly to anyone who meets certain criteria...
           </Typography>
           <div className="mt-4 flex gap-2">
             <CategoryChip variant="value-allocation" />
@@ -115,13 +105,10 @@ function AllPlayAuction({ value }: { value: string }) {
     <AccordionItem value={value}>
       <AccordionTrigger>
         <div className="flex gap-2 items-center justify-between flex-1">
-          <Typography
-            variant="chat-text"
-            className="text-gray-700 leading-6 font-medium inline"
-          >
+          <Typography variant="chat-text" className="text-gray-700 leading-6 font-medium inline">
             All-pay Auction
           </Typography>
-          <div className="w-8 h-8 border-2 border-white bg-green rounded-full shadow-circle mr-4" />
+          <CategoryCircle variant="fundraising" className="mr-4" />
         </div>
       </AccordionTrigger>
       <AccordionContent className="border-t-0 pt-0">
@@ -136,16 +123,9 @@ function AllPlayAuction({ value }: { value: string }) {
   );
 }
 
-function QuestionBubble({
-  children,
-  className,
-  ...props
-}: HTMLProps<HTMLDivElement>) {
+function QuestionBubble({ children, className, ...props }: HTMLProps<HTMLDivElement>) {
   return (
-    <div
-      className={cn(className, "rounded-3xl p-6 bg-gray-600 max-w-[532px]")}
-      {...props}
-    >
+    <div className={cn(className, "rounded-3xl p-6 bg-gray-600 max-w-[532px]")} {...props}>
       <Typography variant="chat-text" className="text-gray-100 font-medium">
         {children}
       </Typography>
@@ -153,16 +133,10 @@ function QuestionBubble({
   );
 }
 
-function FirstResponseBubble({
-  className,
-  ...props
-}: HTMLProps<HTMLDivElement>) {
+function FirstResponseBubble({ className, ...props }: HTMLProps<HTMLDivElement>) {
   return (
     <div
-      className={cn(
-        className,
-        "rounded-3xl p-6 bg-gray-300 max-w-[532px] divide-y divide-divider",
-      )}
+      className={cn(className, "rounded-3xl p-6 bg-gray-300 max-w-[532px] divide-y divide-divider")}
       {...props}
     >
       <Typography
@@ -175,8 +149,8 @@ function FirstResponseBubble({
       </Typography>
       <div className="flex flex-col gap-2">
         <Typography variant="chat-text" className="leading-[175%] mt-4">
-          The following mechanisms can be helpful when you’re trying to finance
-          and coordinate collective ownership of real estate abroad:
+          The following mechanisms can be helpful when you’re trying to finance and coordinate
+          collective ownership of real estate abroad:
         </Typography>
         <Accordion type="multiple" className="flex flex-col gap-4">
           <AirdropAction value="item-1" />
@@ -188,16 +162,10 @@ function FirstResponseBubble({
   );
 }
 
-function SecondResponseBubble({
-  className,
-  ...props
-}: HTMLProps<HTMLDivElement>) {
+function SecondResponseBubble({ className, ...props }: HTMLProps<HTMLDivElement>) {
   return (
     <div
-      className={cn(
-        "flex flex-col p-6 bg-gray-300 max-w-[532px] rounded-3xl gap-2",
-        className,
-      )}
+      className={cn("flex flex-col p-6 bg-gray-300 max-w-[532px] rounded-3xl gap-2", className)}
       {...props}
     >
       <Typography variant="chat-text" className="leading-[175%] text-gray-900">
@@ -249,8 +217,8 @@ function Chat() {
           className="self-end chat-message"
           onAnimationIteration={() => scrollToBottom()}
         >
-          We want to buy and own real estate around the world together. How do
-          we coordinate and finance it?
+          We want to buy and own real estate around the world together. How do we coordinate and
+          finance it?
         </QuestionBubble>
         {messagesCount > 0 && (
           <FirstResponseBubble
@@ -259,10 +227,7 @@ function Chat() {
           />
         )}
         {messagesCount > 1 && (
-          <QuestionBubble
-            className="self-end chat-message"
-            onAnimationEnd={() => scrollToBottom()}
-          >
+          <QuestionBubble className="self-end chat-message" onAnimationEnd={() => scrollToBottom()}>
             Are there examples of DAOs that have done this in the past?
           </QuestionBubble>
         )}
@@ -280,21 +245,11 @@ function Chat() {
 export default function FakeChat({ className }: { className?: string }) {
   const [displayChat, setDisplayChat] = useState(false);
   return (
-    <div
-      className={cn(
-        "max-w-[700px] w-full flex flex-col gap-6 rounded-3xl",
-        className,
-      )}
-    >
+    <div className={cn("max-w-[700px] w-full flex flex-col gap-6 rounded-3xl", className)}>
       {displayChat && <Chat />}
       <label className="relative">
         <div className="flex items-center justify-center w-[30px] h-[30px] bg-gray-400 rounded-full absolute pointer-events-none top-1/2 -translate-y-1/2 right-6">
-          <Image
-            src="/paper-plane.svg"
-            alt="paper-plane"
-            width={14}
-            height={14}
-          />
+          <Image src="/paper-plane.svg" alt="paper-plane" width={14} height={14} />
         </div>
         <Input
           onClick={() => setDisplayChat(true)}
