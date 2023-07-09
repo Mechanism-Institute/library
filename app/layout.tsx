@@ -1,8 +1,10 @@
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import Navbar from "@/components/navbar";
 import { gotham, robotoMono } from "@/fonts";
 import { MechanismCategory } from "@/types/mechanism-category";
+import Link from "next/link";
+import Image from "next/image";
+import Typography from "@/components/ui/typography";
 
 // this is needed because otherwise the tailwind JIT compiler will not be able to find the dynamic classes
 // the type is to ensure every category is covered
@@ -17,6 +19,27 @@ const backgroundVariants: Record<MechanismCategory, string> = {
   identity: "bg-pink",
 };
 
+function Navbar() {
+  return (
+    <nav className="py-8 px-2 border-b border-divider flex justify-between items-center w-full">
+      <Link href="/">
+        <Image src="/logo.svg" alt="logo" width={208} height={34} />
+      </Link>
+      <div className="hidden gap-10 md:flex">
+        <Typography variant="nav-link" asChild>
+          <Link href="/about">About</Link>
+        </Typography>
+        <Typography variant="nav-link" asChild>
+          <Link href="/library">Library</Link>
+        </Typography>
+        <Typography variant="nav-link" asChild>
+          <Link href="/get-involved">Get Involved</Link>
+        </Typography>
+      </div>
+    </nav>
+  );
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -29,11 +52,11 @@ export default function RootLayout({
           robotoMono.variable,
           gotham.variable,
           robotoMono.className,
-          "flex h-[100vh] flex-col mx-20 bg-gray-200",
+          "flex h-[100vh] flex-col px-4 lg:px-20 bg-gray-200",
         )}
       >
         <Navbar />
-        <main className="flex flex-1 flex-col py-16">{children}</main>
+        <main className="flex flex-1 flex-col py-8 lg:py-16">{children}</main>
       </body>
     </html>
   );
