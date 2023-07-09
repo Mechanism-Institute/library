@@ -10,11 +10,11 @@ import { useRouter } from "next/navigation";
 
 function Skeletons() {
   return (
-    <div className="w-full flex-wrap gap-4">
+    <div className="w-full grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
       {Array.from({ length: 16 }).map((_, i) => (
         <div
           key={`skeleton_${i}`}
-          className="flex flex-col p-6 rounded-2xl animate-pulse max-w-[342px] h-[578px]"
+          className="flex flex-col p-6 rounded-2xl animate-pulse h-[578px] bg-gray-400"
         />
       ))}
     </div>
@@ -49,6 +49,8 @@ export default function MechanismsList() {
       </div>
     );
   }
+
+  return <Skeletons />;
 
   return (
     <>
