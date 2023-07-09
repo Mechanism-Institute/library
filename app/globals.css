@@ -97,3 +97,24 @@
     background: #E0DCD9; /* color of the scroll thumb */
     border-radius: 16px;
 }
+
+.chat-message {
+    position: relative;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    animation: bubble 0.5s forwards;
+}
+
+
+@keyframes bubble {
+    0% {
+        opacity: 0;
+        max-height: 0;
+    }
+    100% {
+        opacity: 1;
+        overflow: visible;
+        max-height: unset;
+    }
+}

@@ -10,7 +10,7 @@ const typographyVariants = cva("", {
       body: "leading-full text-gray-900",
       "nav-link": "text-gray-600 uppercase",
       "hero-title": "text-[28px] leading-full text-gray-900",
-      "chat-text": "text-[20px] leading-[150%] font-normal",
+      "chat-text": "text-[20px] leading-[150%] font-normal text-gray-900",
     },
   },
   defaultVariants: {

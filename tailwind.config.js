@@ -38,6 +38,9 @@ module.exports = {
         blue: {
           DEFAULT: "#0A5E9C",
         },
+        teal: {
+          DEFAULT: "#45B5BC",
+        },
         yellow: {
           DEFAULT: "#F2C202",
         },
@@ -105,6 +108,10 @@ module.exports = {
       },
       lineHeight: {
         full: "100%",
+      },
+      boxShadow: {
+        accordion: "0px 6px 16px 0px rgba(0, 0, 0, 0.03)",
+        circle: "0px 3px 4px 0px rgba(0, 0, 0, 0.05)",
       },
     },
   },
