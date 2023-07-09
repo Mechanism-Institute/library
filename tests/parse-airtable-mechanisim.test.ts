@@ -27,7 +27,7 @@ test("parseAirtableMechanism", () => {
     expect(result.createdTime).toBe("2023-07-09T00:00:00.000Z");
     expect(result.name).toBe("Test Mechanism");
     expect(result.description).toBe("This is a test mechanism");
-    expect(result.category).toBe(CAPITALIZED_CATEGORIES["value-allocation"]);
+    expect(result.category).toBe("value-allocation");
     expect(result.secondaryCategories).toEqual(undefined);
   } else {
     throw new Error("mapMechanism returned null");
@@ -62,12 +62,8 @@ test("parseAirtableMechanism with secondary categories", () => {
     expect(result.createdTime).toBe("2023-07-09T00:00:00.000Z");
     expect(result.name).toBe("Test Mechanism");
     expect(result.description).toBe("This is a test mechanism");
-    expect(result.category).toBe(CAPITALIZED_CATEGORIES["value-allocation"]);
-    expect(result.secondaryCategories).toEqual([
-      CAPITALIZED_CATEGORIES["value-capture"],
-      CAPITALIZED_CATEGORIES["fundraising"],
-      CAPITALIZED_CATEGORIES["governance"],
-    ]);
+    expect(result.category).toBe("value-allocation");
+    expect(result.secondaryCategories).toEqual(["value-capture", "fundraising", "governance"]);
   } else {
     throw new Error("mapMechanism returned null");
   }

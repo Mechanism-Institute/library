@@ -8,7 +8,7 @@ export function createFilterFormula({
   categories?: MechanismCategory[];
   searchTerm?: string | null;
 }) {
-  let searchCategories: MechanismCategory[];
+  let searchCategories: string[];
 
   if (categories && categories.length > 0) {
     searchCategories = categories.map((category) => CAPITALIZED_CATEGORIES[category]);

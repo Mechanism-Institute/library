@@ -8,7 +8,7 @@ import Link from "next/link";
 import { X } from "lucide-react";
 import { cn } from "@/utils/cn";
 
-function CategoryFilter({ category }: { category: MechanismCategory }) {
+function Filter({ category }: { category: MechanismCategory }) {
   const pathname = usePathname();
   const searchParams = useSearchParams()!;
   const isActive = searchParams.getAll("category").includes(category);
@@ -47,10 +47,10 @@ function CategoryFilter({ category }: { category: MechanismCategory }) {
   );
 }
 
-export default function ({ category }: { category: MechanismCategory }) {
+export default function CategoryFilter({ category }: { category: MechanismCategory }) {
   return (
     <Suspense>
-      <CategoryFilter category={category} />
+      <Filter category={category} />
     </Suspense>
   );
 }

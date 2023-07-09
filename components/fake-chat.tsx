@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import Link from "next/link";
 import Globe from "@/components/ui/globe";
-import CategoryChip from "@/components/ui/category-chip";
+import CategoryTag from "@/components/ui/category-tag";
 import { HTMLProps, useEffect, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/utils/cn";
@@ -63,7 +63,7 @@ function AirdropAction({ value }: { value: string }) {
             A distribution mechanism where tokens are given away for free to a specific group of
             people or randomly to anyone who meets certain criteria...
           </Typography>
-          <CategoryChip variant="value-allocation" className="mt-4" />
+          <CategoryTag variant="value-allocation" className="mt-4" />
         </div>
       </AccordionContent>
     </AccordionItem>
@@ -91,8 +91,8 @@ function StakingGauge({ value }: { value: string }) {
             people or randomly to anyone who meets certain criteria...
           </Typography>
           <div className="mt-4 flex gap-2">
-            <CategoryChip variant="value-allocation" />
-            <CategoryChip variant="budgeting" />
+            <CategoryTag variant="value-allocation" />
+            <CategoryTag variant="budgeting" />
           </div>
         </div>
       </AccordionContent>
@@ -116,7 +116,7 @@ function AllPlayAuction({ value }: { value: string }) {
           <Typography className="text-gray-700 font-normal leading-[150%] py-4 border-y border-divider">
             Auctions in which all bidders must pay their bid.
           </Typography>
-          <CategoryChip variant="fundraising" className="mt-4" />
+          <CategoryTag variant="fundraising" className="mt-4" />
         </div>
       </AccordionContent>
     </AccordionItem>
@@ -143,9 +143,9 @@ function FirstResponseBubble({ className, ...props }: HTMLProps<HTMLDivElement>)
         variant="chat-text"
         className="flex items-baseline gap-x-1 gap-y-[3px] self-stretch flex-wrap pb-4"
       >
-        Your solution requires <CategoryChip variant="fundraising" />,
-        <CategoryChip variant="budgeting" />
-        and <CategoryChip variant="value-allocation" />
+        Your solution requires <CategoryTag variant="fundraising" />,
+        <CategoryTag variant="budgeting" />
+        and <CategoryTag variant="value-allocation" />
       </Typography>
       <div className="flex flex-col gap-2">
         <Typography variant="chat-text" className="leading-[175%] mt-4">

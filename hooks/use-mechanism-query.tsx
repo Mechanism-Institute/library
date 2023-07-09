@@ -1,24 +1,34 @@
 import { Mechanism } from "@/types/mechanism";
 import { useSearchParams } from "next/navigation";
-import { MechanismCategory } from "@/types/mechanism-category";
-import { useQuery } from "react-query";
+import { useInfiniteQuery } from "react-query";
 
-export default function useMechanismQuery(params?: { initialData?: Mechanism[] }) {
+type Response = {
+  offset?: string;
+  mechanisms: Mechanism[];
+};
+
+export default function useMechanismQuery() {
   const urlSearchParams = useSearchParams()!;
-  const categories = urlSearchParams.getAll("category") as MechanismCategory[];
-  const search = urlSearchParams.get("search");
 
-  return useQuery<Mechanism[], Error>(
-    ["mechanisms", categories, search],
-    async () => {
-      const request = await fetch(`api?${urlSearchParams}`);
+  return useInfiniteQuery<Response, Error>(
+    ["mechanisms", urlSearchParams.toString()],
+    async ({ pageParam: offset }) => {
+      const params = new URLSearchParams(urlSearchParams.toString());
+
+      if (offset) {
+        params.set("offset", offset);
+      }
+
+      const request = await fetch(`api?${params.toString()}`);
 
       if (!request.ok) {
         throw new Error("Error searching mechanisms");
       }
 
-      return (await request.json()) as Mechanism[];
+      return (await request.json()) as Response;
     },
-    { initialData: params?.initialData },
+    {
+      getNextPageParam: (lastPage) => lastPage.offset ?? undefined,
+    },
   );
 }

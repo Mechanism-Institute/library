@@ -115,6 +115,7 @@ module.exports = {
       boxShadow: {
         accordion: "0px 6px 16px 0px rgba(0, 0, 0, 0.03)",
         circle: "0px 3px 4px 0px rgba(0, 0, 0, 0.05)",
+        "category-tag": "0px 3px 4px 0px rgba(0, 0, 0, 0.05)",
       },
     },
   },

@@ -6,21 +6,28 @@ import { parseAirtableMechanism } from "@/utils/parse-airtable-mechanism";
 
 type Response = {
   records: AirtableMechanism[];
+  offset?: string;
 };
 
 export async function searchMechanisms(params?: {
-  categories?: MechanismCategory[];
-  searchTerm?: string | null;
+  categories: MechanismCategory[];
+  searchTerm: string | null;
+  offset: string | null;
 }) {
   const filterFormula = createFilterFormula({
     searchTerm: params?.searchTerm,
     categories: params?.categories,
   });
 
+  const searchParams = new URLSearchParams({
+    pageSize: "16",
+    view: "Approved",
+    filterByFormula: filterFormula,
+    ...(params?.offset ? { offset: params.offset } : {}),
+  });
+
   const request = await fetch(
-    `https://api.airtable.com/v0/appocudTAOitQmuud/mechanisms?view=Approved&filterByFormula=${encodeURIComponent(
-      filterFormula,
-    )}`,
+    `https://api.airtable.com/v0/appocudTAOitQmuud/mechanisms?${searchParams.toString()}`,
     {
       headers: {
         Authorization: `Bearer ${process.env.AIRTABLE_PAT}`,
@@ -32,7 +39,10 @@ export async function searchMechanisms(params?: {
     throw new Error(JSON.stringify(await request.json(), null, 2));
   }
 
-  const { records } = (await request.json()) as Response;
+  const { records, offset } = (await request.json()) as Response;
 
-  return records.map(parseAirtableMechanism).filter(Boolean) as Mechanism[];
+  return {
+    mechanisms: records.map(parseAirtableMechanism).filter(Boolean) as Mechanism[],
+    offset,
+  };
 }

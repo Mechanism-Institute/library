@@ -2,7 +2,7 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { CATEGORIES } from "@/config/categories";
 import CategoryFilter from "@/app/library/category-filter";
-import MechanismList from "@/components/mechanism-list";
+import MechanismsList from "@/components/mechanisms-list";
 import { cn } from "@/utils/cn";
 
 function CategoryFilters({ className }: { className?: string }) {
@@ -29,7 +29,7 @@ export default async function Library() {
         <Input name="search" type="text" placeholder="Search" className="pl-[62px] py-5" />
       </label>
       <CategoryFilters />
-      <MechanismList />
+      <MechanismsList />
     </div>
   );
 }
