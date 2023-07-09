@@ -50,24 +50,24 @@ export default function MechanismsList() {
     );
   }
 
+  if (status === "loading") {
+    return <Skeletons />;
+  }
+
+  if (status === "error" || !data) {
+    return <div>Oops, there was something wrong</div>;
+  }
+
   return (
     <>
       <div className="w-full grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
-        {status === "loading" ? (
-          <Skeletons />
-        ) : status === "error" ? (
-          <div>Oops, there was something wrong</div>
-        ) : (
-          <>
-            {data?.pages.map((page, index) => (
-              <Fragment key={`page_${index}`}>
-                {page.mechanisms.map((mechanism) => (
-                  <MechanismCard key={mechanism.id} mechanism={mechanism} />
-                ))}
-              </Fragment>
+        {data.pages.map((page, index) => (
+          <Fragment key={`page_${index}`}>
+            {page.mechanisms.map((mechanism) => (
+              <MechanismCard key={mechanism.id} mechanism={mechanism} />
             ))}
-          </>
-        )}
+          </Fragment>
+        ))}
       </div>
       <div className="mt-10 flex w-full justify-center">
         {hasNextPage ? (

@@ -2,10 +2,15 @@ import Typography from "@/components/ui/typography";
 import { Mechanism } from "@/types/mechanism";
 import CategoryTag from "@/components/ui/category-tag";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function MechanismCard({ mechanism }: { mechanism: Mechanism }) {
   return (
-    <div className="flex flex-col p-6 rounded-2xl bg-white gap-6">
+    <Link
+      href={`/mechanism/${mechanism.id}`}
+      className="flex flex-col p-6 rounded-2xl bg-white gap-6"
+      aria-label={`Mechanism ${mechanism.name}`}
+    >
       <div className="w-full h-[286px] flex items-center justify-center">
         <Image src="/sample-mechanism-ilustration.svg" alt="" width={286} height={286}></Image>
       </div>
@@ -23,6 +28,6 @@ export default function MechanismCard({ mechanism }: { mechanism: Mechanism }) {
           ))}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

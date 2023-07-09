@@ -10,7 +10,7 @@ test("parseAirtableMechanism", () => {
     createdTime: "2023-07-09T00:00:00.000Z",
     fields: {
       Name: "Test Mechanism",
-      Description: "This is a test mechanism",
+      Description: "This is a test mechanisms",
       Type: [CAPITALIZED_CATEGORIES["value-allocation"]],
       Approved: true,
       Upvotes: 0,
@@ -26,7 +26,7 @@ test("parseAirtableMechanism", () => {
     expect(result.id).toBe("1");
     expect(result.createdTime).toBe("2023-07-09T00:00:00.000Z");
     expect(result.name).toBe("Test Mechanism");
-    expect(result.description).toBe("This is a test mechanism");
+    expect(result.description).toBe("This is a test mechanisms");
     expect(result.category).toBe("value-allocation");
     expect(result.secondaryCategories).toEqual(undefined);
   } else {
@@ -40,7 +40,7 @@ test("parseAirtableMechanism with secondary categories", () => {
     createdTime: "2023-07-09T00:00:00.000Z",
     fields: {
       Name: "Test Mechanism",
-      Description: "This is a test mechanism",
+      Description: "This is a test mechanisms",
       Type: [
         CAPITALIZED_CATEGORIES["value-allocation"],
         CAPITALIZED_CATEGORIES["value-capture"],
@@ -61,7 +61,7 @@ test("parseAirtableMechanism with secondary categories", () => {
     expect(result.id).toBe("1");
     expect(result.createdTime).toBe("2023-07-09T00:00:00.000Z");
     expect(result.name).toBe("Test Mechanism");
-    expect(result.description).toBe("This is a test mechanism");
+    expect(result.description).toBe("This is a test mechanisms");
     expect(result.category).toBe("value-allocation");
     expect(result.secondaryCategories).toEqual(["value-capture", "fundraising", "governance"]);
   } else {
@@ -75,7 +75,7 @@ test("parseAirtableMechanism with invalid category", () => {
     createdTime: "2023-07-09T00:00:00.000Z",
     fields: {
       Name: "Test Mechanism",
-      Description: "This is a test mechanism",
+      Description: "This is a test mechanisms",
       Type: ["Invalid Category"],
       Approved: true,
       Upvotes: 0,

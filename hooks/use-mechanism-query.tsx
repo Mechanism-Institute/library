@@ -19,7 +19,7 @@ export default function useMechanismQuery() {
         params.set("offset", offset);
       }
 
-      const request = await fetch(`api?${params.toString()}`);
+      const request = await fetch(`api/inventory?${params.toString()}`);
 
       if (!request.ok) {
         throw new Error("Error searching mechanisms");
