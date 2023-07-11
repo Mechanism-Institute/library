@@ -9,6 +9,7 @@ import { getImplementations } from "@/lib/get-implementations";
 import { parseResourcesString } from "@/utils/parse-resources-string";
 import { Separator } from "@/components/ui/separator";
 import Implementation from "@/components/implementation";
+import ReactMarkdown from "react-markdown";
 
 async function getAggregatedMechanism(id: string) {
   const mechanism = await getMechanism(id);
@@ -48,16 +49,6 @@ export default async function Page({ params }: { params: { id: string } }) {
         className="hidden lg:block fixed right-20 top-[400px] z-0"
       />
       <div className="flex flex-col gap-6 z-10 lg:max-w-[240px]">
-        <div className="bg-white w-60 h-60 flex items-center justify-center rounded-lg ">
-          <Image
-            className="bg-white"
-            src="/sample-mechanism-ilustration.svg"
-            alt=""
-            width={200}
-            height={200}
-          />
-        </div>
-        <Separator />
         <div className="flex flex-col gap-4">
           <CategoryTag variant={mechanism.category} className="w-full" />
           {mechanism.secondaryCategories?.map((category) => (
@@ -98,6 +89,11 @@ export default async function Page({ params }: { params: { id: string } }) {
               {mechanism.description}
             </Typography>
           </div>
+          <Separator />
+          <article className="prose">
+            {/* eslint-disable-next-line react/no-children-prop */}
+            <ReactMarkdown children={mechanism.discussion} />
+          </article>
           {mechanism.implementations.length > 0 && (
             <div className="flex flex-col gap-6">
               <Typography variant="subtitle" className="text-stone font-gotham font-medium">

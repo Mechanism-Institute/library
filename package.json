@@ -30,6 +30,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-intersection-observer": "^9.5.2",
+    "react-markdown": "^8.0.7",
     "react-query": "^3.39.3",
     "react-type-animation": "^3.1.0",
     "tailwind-merge": "^1.13.2",
@@ -38,6 +39,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
     "@tanstack/eslint-plugin-query": "^4.29.9",
     "@types/sinon": "^10.0.15",
     "prettier": "^3.0.0",

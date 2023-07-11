@@ -14,7 +14,7 @@ function Skeletons() {
       {Array.from({ length: 16 }).map((_, i) => (
         <div
           key={`skeleton_${i}`}
-          className="flex flex-col p-6 rounded-2xl animate-pulse h-[578px] bg-gray-400"
+          className="flex flex-col p-6 rounded-2xl animate-pulse h-[300px] bg-gray-400"
         />
       ))}
     </div>
@@ -41,7 +41,7 @@ export default function MechanismsList() {
 
   if (isEmpty) {
     return (
-      <div className="flex flex-col items-center justify-center w-full h-full mt-20 gap-8">
+      <div className="flex flex-col items-center justify-center w-full h-full min-h-[300px] mt-20 gap-8">
         <Typography variant="hero-title">No mechanisms with the criteria found</Typography>
         <Button variant="outline" onClick={clearFilters}>
           Clear filters

@@ -27,36 +27,26 @@ export default function Implementation({ implementation }: { implementation: Imp
       <Typography className="text-stone text-[20px] leading-[175%]">
         {implementation.description}
       </Typography>
-      <div className="flex flex-col gap-2">
+      <div className="flex gap-2 flex-wrap">
         {implementation.app && (
-          <div className="text-orange flex gap-2 items-center">
+          <Link className="text-orange" href={implementation.app} target="_blank" rel="noreferrer">
             <Globe />
-            <Typography className="text-orange underline" asChild>
-              <Link href={implementation.app} target="_blank" rel="noreferrer">
-                {formatUrl(implementation.app)}
-              </Link>
-            </Typography>
-          </div>
+          </Link>
         )}
         {implementation.docs && (
-          <div className="text-orange flex gap-2 items-center">
+          <Link className="text-orange" href={implementation.docs} target="_blank" rel="noreferrer">
             <File />
-            <Typography className="text-orange underline capitalize" asChild>
-              <Link href={implementation.docs} target="_blank" rel="noreferrer">
-                {implementation.name} Docs
-              </Link>
-            </Typography>
-          </div>
+          </Link>
         )}
         {implementation.sourcecode && (
-          <div className="text-orange flex gap-2 items-center">
+          <Link
+            className="text-orange"
+            href={implementation.sourcecode}
+            target="_blank"
+            rel="noreferrer"
+          >
             <Github />
-            <Typography className="text-orange underline capitalize" asChild>
-              <Link href={implementation.sourcecode} target="_blank" rel="noreferrer">
-                Github
-              </Link>
-            </Typography>
-          </div>
+          </Link>
         )}
       </div>
     </div>

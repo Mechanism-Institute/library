@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <nav className="py-8 px-2 border-b border-divider flex justify-between items-center w-full">
       <Link href="/">
-        <Image src="/logo.svg" alt="logo" width={208} height={34} />
+        <Image src="/hero.svg" alt="logo" width={208} height={34} />
       </Link>
 
       <div className="hidden gap-10 md:flex">
