@@ -98,12 +98,16 @@ export default async function Page({ params }: { params: { id: string } }) {
               {mechanism.description}
             </Typography>
           </div>
-          <div className="flex flex-col gap-6">
-            <Typography>Implementations</Typography>
-            {mechanism.implementations.map((implementation) => (
-              <Implementation key={implementation.id} implementation={implementation} />
-            ))}
-          </div>
+          {mechanism.implementations.length > 0 && (
+            <div className="flex flex-col gap-6">
+              <Typography variant="subtitle" className="text-stone font-gotham font-medium">
+                Implementations
+              </Typography>
+              {mechanism.implementations.map((implementation) => (
+                <Implementation key={implementation.id} implementation={implementation} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
