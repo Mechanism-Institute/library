@@ -64,23 +64,27 @@ export default async function Page({ params }: { params: { id: string } }) {
             <CategoryTag key={category} variant={category} className="w-full" />
           ))}
         </div>
-        <Separator />
-        <div className="flex flex-col gap-6">
-          <Typography variant="subtitle2" className="font-gotham">
-            Resources
-          </Typography>
-          <ul className="gap-4 flex flex-col list-disc flex-wrap ml-4">
-            {mechanism.resources.map((resource) => (
-              <li key={resource.link}>
-                <Typography asChild className="underline ">
-                  <Link href={resource.link} target="_blank" rel="noreferrer">
-                    {resource.name}
-                  </Link>
-                </Typography>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {mechanism.resources.length > 0 && (
+          <>
+            <Separator />
+            <div className="flex flex-col gap-6">
+              <Typography variant="subtitle2" className="font-gotham">
+                Resources
+              </Typography>
+              <ul className="gap-4 flex flex-col list-disc flex-wrap ml-4">
+                {mechanism.resources.map((resource) => (
+                  <li key={resource.link}>
+                    <Typography asChild className="underline ">
+                      <Link href={resource.link} target="_blank" rel="noreferrer">
+                        {resource.name}
+                      </Link>
+                    </Typography>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </>
+        )}
       </div>
       <div className="flex flex-1 z-10">
         <div className="flex flex-col max-w-[720px] lg:w-full gap-12">
