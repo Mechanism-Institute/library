@@ -32,7 +32,9 @@ export default function Implementation({ implementation }: { implementation: Imp
           <div className="text-orange flex gap-2 items-center">
             <Globe />
             <Typography className="text-orange underline" asChild>
-              <Link href={implementation.app}>{formatUrl(implementation.app)}</Link>
+              <Link href={implementation.app} target="_blank" rel="noreferrer">
+                {formatUrl(implementation.app)}
+              </Link>
             </Typography>
           </div>
         )}
@@ -40,7 +42,9 @@ export default function Implementation({ implementation }: { implementation: Imp
           <div className="text-orange flex gap-2 items-center">
             <File />
             <Typography className="text-orange underline capitalize" asChild>
-              <Link href={implementation.docs}>{implementation.name} Docs</Link>
+              <Link href={implementation.docs} target="_blank" rel="noreferrer">
+                {implementation.name} Docs
+              </Link>
             </Typography>
           </div>
         )}
@@ -48,7 +52,9 @@ export default function Implementation({ implementation }: { implementation: Imp
           <div className="text-orange flex gap-2 items-center">
             <Github />
             <Typography className="text-orange underline capitalize" asChild>
-              <Link href={implementation.sourcecode}>Github</Link>
+              <Link href={implementation.sourcecode} target="_blank" rel="noreferrer">
+                Github
+              </Link>
             </Typography>
           </div>
         )}

@@ -73,7 +73,9 @@ export default async function Page({ params }: { params: { id: string } }) {
             {mechanism.resources.map((resource) => (
               <li key={resource.link}>
                 <Typography asChild className="underline ">
-                  <Link href={resource.link}>{resource.name}</Link>
+                  <Link href={resource.link} target="_blank" rel="noreferrer">
+                    {resource.name}
+                  </Link>
                 </Typography>
               </li>
             ))}
