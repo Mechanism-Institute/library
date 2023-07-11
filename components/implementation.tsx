@@ -6,7 +6,7 @@ import Link from "next/link";
 import File from "@/components/ui/file";
 import Github from "@/components/ui/github";
 
-const removeProtocol = (url: string) => url.replace(/(^\w+:|^)\/\//, "");
+const formatUrl = (url: string) => url.replace(/(^\w+:|^)\/\//, "").replace(/\/$/, "");
 
 export default function Implementation({ implementation }: { implementation: Implementation }) {
   return (
@@ -32,7 +32,7 @@ export default function Implementation({ implementation }: { implementation: Imp
           <div className="text-orange flex gap-2 items-center">
             <Globe />
             <Typography className="text-orange underline" asChild>
-              <Link href={implementation.app}>{removeProtocol(implementation.app)}</Link>
+              <Link href={implementation.app}>{formatUrl(implementation.app)}</Link>
             </Typography>
           </div>
         )}
