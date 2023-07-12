@@ -3,6 +3,7 @@ import { MechanismCategory } from "@/types/mechanism-category";
 export type Mechanism = {
   id: string;
   createdTime: string;
+  alternativeNames: string[];
   name: string;
   description: string;
   discussion: string;

@@ -16,6 +16,7 @@ const typographyVariants = cva("", {
       title2: "text-[40px] leading-full font-medium text-gray-900",
       subtitle: "text-[32px] leading-full font-normal text-gray-900",
       subtitle2: "text-[24px] leading-full font-normal text-gray-900",
+      secondary: "text-[14px] leading-6 font-normal text-[#98A7AE]",
     },
   },
   defaultVariants: {

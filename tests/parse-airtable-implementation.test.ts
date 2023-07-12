@@ -1,4 +1,4 @@
-import { AirtableImplementation } from "@/types/airtable-implmentation";
+import { AirtableImplementation } from "@/types/airtable-implementation";
 import { Implementation } from "@/types/mechanism";
 import { parseAirtableImplementation } from "@/utils/parse-airtable-implementations";
 import { expect, test } from "vitest";

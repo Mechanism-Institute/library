@@ -14,8 +14,10 @@ test("parseAirtableMechanism", () => {
       Type: [CAPITALIZED_CATEGORIES["value-allocation"]],
       Approved: true,
       Upvotes: 0,
-      Implementations: "",
+      Implementations: [""],
+      AlternativeNames: "",
       Discussion: "Discussion",
+      Resources: "",
     },
   };
 
@@ -52,8 +54,10 @@ test("parseAirtableMechanism with secondary categories", () => {
       ],
       Approved: true,
       Upvotes: 0,
-      Implementations: "",
+      Implementations: [""],
+      AlternativeNames: "",
       Discussion: "Discussion",
+      Resources: "",
     },
   };
 
@@ -68,6 +72,7 @@ test("parseAirtableMechanism with secondary categories", () => {
     expect(result.description).toBe("This is a test mechanisms");
     expect(result.category).toBe("value-allocation");
     expect(result.secondaryCategories).toEqual(["value-capture", "fundraising", "governance"]);
+    expect(result.discussion).toBe("Discussion");
   } else {
     throw new Error("mapMechanism returned null");
   }
@@ -83,8 +88,10 @@ test("parseAirtableMechanism with invalid category", () => {
       Type: ["Invalid Category"],
       Approved: true,
       Upvotes: 0,
-      Implementations: "",
+      Implementations: [""],
+      AlternativeNames: "",
       Discussion: "Discussion",
+      Resources: "",
     },
   };
 

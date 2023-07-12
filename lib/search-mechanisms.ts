@@ -3,7 +3,7 @@ import { MechanismCategory } from "@/types/mechanism-category";
 import { createMechanismsSearchFilterFormula } from "@/utils/filter-formulas";
 import { AirtableMechanism } from "@/types/airtable-mechanism";
 import { parseAirtableMechanism } from "@/utils/parse-airtable-mechanism";
-import { MECHANISMS_TABLE_NAME } from "@/config/table-names";
+import { MECHANISMS_TABLE_ID } from "@/config/table-names";
 
 type Response = {
   records: AirtableMechanism[];
@@ -28,7 +28,7 @@ export async function searchMechanisms(params?: {
   });
 
   const request = await fetch(
-    `https://api.airtable.com/v0/appocudTAOitQmuud/${MECHANISMS_TABLE_NAME}?${searchParams.toString()}`,
+    `https://api.airtable.com/v0/appocudTAOitQmuud/${MECHANISMS_TABLE_ID}?${searchParams.toString()}`,
     {
       headers: {
         Authorization: `Bearer ${process.env.AIRTABLE_PAT}`,

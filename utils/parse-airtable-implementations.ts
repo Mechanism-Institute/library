@@ -1,5 +1,5 @@
 import { Implementation } from "@/types/mechanism";
-import { AirtableImplementation } from "@/types/airtable-implmentation";
+import { AirtableImplementation } from "@/types/airtable-implementation";
 
 export function parseAirtableImplementation(
   airtableImplementations: AirtableImplementation,

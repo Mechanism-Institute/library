@@ -41,6 +41,8 @@ export function parseAirtableMechanism(airtableMechanism: AirtableMechanism): Me
       id: airtableMechanism.id,
       createdTime: airtableMechanism.createdTime,
       name: airtableMechanism.fields.Name,
+      // TODO: This filter should be removed once the API returns an array
+      alternativeNames: [airtableMechanism.fields.AlternativeNames].filter(Boolean),
       description: airtableMechanism.fields.Description,
       category: parseCategory(category),
       secondaryCategories: secondaryCategories?.map(parseCategory),

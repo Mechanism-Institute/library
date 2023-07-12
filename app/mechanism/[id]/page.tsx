@@ -84,7 +84,18 @@ export default async function Page({ params }: { params: { id: string } }) {
             <Typography>Back to Library</Typography>
           </Link>
           <div className="flex flex-col gap-6 font-gotham">
-            <Typography variant="title">{mechanism.name}</Typography>
+            <div className="flex gap-2 items-center flex-wrap">
+              <Typography variant="title">{mechanism.name}</Typography>
+              {mechanism.alternativeNames.map((alternativeName, i) => (
+                <Typography
+                  variant="subtitle2"
+                  className="font-gotham text-gray-500"
+                  key={`${alternativeName}_${i}`}
+                >
+                  {"//"} {alternativeName}
+                </Typography>
+              ))}
+            </div>
             <Typography className="text-[28px] leading-[175%] font-semilight">
               {mechanism.description}
             </Typography>
