@@ -47,7 +47,7 @@ export function parseAirtableMechanism(airtableMechanism: AirtableMechanism): Me
       category: parseCategory(category),
       secondaryCategories: secondaryCategories?.map(parseCategory),
       discussion: airtableMechanism.fields.Discussion,
-      implementations: airtableMechanism.fields.Implementations,
+      implementations: airtableMechanism.fields.Implementations ?? [],
       resources: airtableMechanism.fields.Resources,
     };
   } catch (error) {

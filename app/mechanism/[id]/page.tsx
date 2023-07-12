@@ -14,6 +14,7 @@ import ReactMarkdown from "react-markdown";
 async function getAggregatedMechanism(id: string) {
   const mechanism = await getMechanism(id);
   if (!mechanism) return null;
+  console.log(mechanism.implementations);
   const implementations = await getImplementations(mechanism.implementations);
   return {
     ...mechanism,
