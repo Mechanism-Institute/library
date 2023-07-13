@@ -10,45 +10,59 @@ const formatUrl = (url: string) => url.replace(/(^\w+:|^)\/\//, "").replace(/\/$
 
 export default function Implementation({ implementation }: { implementation: Implementation }) {
   return (
-    <div className="flex p-4 flex-col gap-2 bg-white rounded-2xl">
-      <div className="flex gap-2 items-center">
-        {implementation.logo && (
-          <Image
-            src={implementation.logo}
-            alt={`${implementation.name} logo`}
-            width={40}
-            height={40}
-          />
-        )}
-        <Typography className="text-[20px] text-[#6D8089] font-gotham leading-full">
-          {implementation.name}
+    <div className="flex flex-col gap-4 p-4 bg-white rounded-2xl">
+      <div className="flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2">
+          {implementation.logo && (
+            <Image
+              src={implementation.logo}
+              alt={`${implementation.name} logo`}
+              width={40}
+              height={40}
+            />
+          )}
+          <Typography className="text-[20px] text-gray-700 font-medium font-gotham leading-full">
+            {implementation.name}
+          </Typography>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {implementation.app && (
+            <Link
+              className="p-2 text-white transition-opacity duration-300 bg-gray-500 rounded-full cursor-pointer hover:opacity-70"
+              href={implementation.app}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Globe />
+            </Link>
+          )}
+          {implementation.docs && (
+            <Link
+              className="p-2 text-white transition-opacity duration-300 bg-gray-500 rounded-full cursor-pointer hover:opacity-70"
+              href={implementation.docs}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <File />
+            </Link>
+          )}
+          {implementation.sourcecode && (
+            <Link
+              className="p-2 text-white transition-opacity duration-300 bg-gray-500 rounded-full cursor-pointer hover:opacity-70"
+              href={implementation.sourcecode}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Github />
+            </Link>
+          )}
+        </div>
+      </div>
+      {implementation.description && (
+        <Typography className="text-stone text-[16px] leading-[175%] pt-4 border-t border-gray-200 font-semilight">
+          {implementation.description}
         </Typography>
-      </div>
-      <Typography className="text-stone text-[20px] leading-[175%]">
-        {implementation.description}
-      </Typography>
-      <div className="flex gap-2 flex-wrap">
-        {implementation.app && (
-          <Link className="text-orange" href={implementation.app} target="_blank" rel="noreferrer">
-            <Globe />
-          </Link>
-        )}
-        {implementation.docs && (
-          <Link className="text-orange" href={implementation.docs} target="_blank" rel="noreferrer">
-            <File />
-          </Link>
-        )}
-        {implementation.sourcecode && (
-          <Link
-            className="text-orange"
-            href={implementation.sourcecode}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Github />
-          </Link>
-        )}
-      </div>
+      )}
     </div>
   );
 }
