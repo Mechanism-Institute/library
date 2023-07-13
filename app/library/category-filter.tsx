@@ -36,13 +36,13 @@ function Filter({ category }: { category: MechanismCategory }) {
     <Link
       className={cn(
         "flex items-center gap-1",
-        "font-gotham leading-full font-medium py-2.5 px-4 text-sm rounded-3xl",
+        "font-gotham leading-full font-medium py-2.5 px-4 text-sm rounded-3xl hover:opacity-70 transition-opacity duration-300 cursor-pointer",
         isActive ? ["text-white", CATEGORIES_BACKGROUNDS[category]] : "bg-[#E8DDD5] text-[#8D7C70]",
       )}
       href={pathname + "?" + createQueryString(category)}
     >
       {CATEGORY_LABELS[category]}
-      {isActive && <X />}
+      {isActive && <X className="w-4 h-4" />}
     </Link>
   );
 }
