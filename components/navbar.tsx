@@ -10,26 +10,42 @@ import { Transition } from "@headlessui/react";
 import SupporterDialog from "@/components/supporter-dialog";
 import { useAtom } from "jotai";
 import { supporterDialogAtom } from "@/state/supporter-atom";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [, setDialogOpen] = useAtom(supporterDialogAtom);
   const [open, setOpen] = useState(false);
 
+  const activePage = usePathname();
+
+  const navLinkClasses = "cursor-pointer hover:opacity-70 transition-opacity duration-300";
+  const activeClasses =
+    "underline underline-offset-[48px] decoration-4 decoration-orange text-orange";
+
   return (
-    <nav className="py-8 px-2 border-b border-divider flex justify-between items-center w-full">
+    <nav className="flex items-center justify-between w-full px-2 py-8 border-b border-divider">
       <Link href="/">
-        <Image src="/hero.svg" alt="logo" width={208} height={34} />
+        <Image src="/logo.svg" alt="logo" width={208} height={34} />
       </Link>
 
       <div className="hidden gap-10 md:flex">
-        <Typography variant="nav-link" asChild>
+        <Typography
+          className={clsx(navLinkClasses, activePage === "/about" && activeClasses)}
+          variant="nav-link"
+          asChild
+        >
           <Link href="/about">About</Link>
         </Typography>
-        <Typography variant="nav-link" asChild>
+        <Typography
+          className={clsx(navLinkClasses, activePage === "/library" && activeClasses)}
+          variant="nav-link"
+          asChild
+        >
           <Link href="/library">Library</Link>
         </Typography>
         <Typography
-          className="cursor-pointer"
+          className={navLinkClasses}
           variant="nav-link"
           onClick={() => {
             setOpen(false);
@@ -45,11 +61,11 @@ export default function Navbar() {
           <Dialog.Trigger className="button">
             <Menu className="text-gray-600" />
           </Dialog.Trigger>
-          <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-50 z-40" />
+          <Dialog.Overlay className="fixed inset-0 z-40 bg-black bg-opacity-50" />
           <Transition
             as={Dialog.Content}
             aria-label="Menu"
-            className="fixed right-0 top-0 bg-gray-200 p-6 space-y-4 shadow-xl h-screen z-50 flex flex-col transition-all transform translate-x-full"
+            className="fixed top-0 right-0 z-50 flex flex-col h-screen p-6 space-y-4 transition-all transform translate-x-full bg-gray-200 shadow-xl"
             show={open}
             enter="transition-all transform ease-out duration-300"
             enterFrom="opacity-0 translate-x-full"
