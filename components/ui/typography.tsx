@@ -8,14 +8,14 @@ const typographyVariants = cva("", {
   variants: {
     variant: {
       base: "leading-full text-gray-900",
-      body: "leading-[175%] font-semilight text-stone text-[18px]",
+      body: "leading-[150%] font-semilight text-stone text-[16px]",
       "nav-link": "text-gray-600 uppercase",
       "hero-title": "text-[28px] leading-full text-gray-900",
-      "chat-text": "text-[20px] leading-[150%] font-normal text-gray-900",
+      "chat-text": "text-[14px] leading-[150%] font-normal text-gray-900",
       title: "text-[48px] leading-full font-medium text-gray-900",
       title2: "text-[40px] leading-full font-medium text-gray-900",
       subtitle: "text-[32px] leading-full font-normal text-gray-900",
-      subtitle2: "text-[24px] leading-full font-normal text-gray-900",
+      subtitle2: "text-[16px] leading-full font-medium text-gray-900",
       secondary: "text-[14px] leading-6 font-normal text-[#98A7AE]",
     },
   },

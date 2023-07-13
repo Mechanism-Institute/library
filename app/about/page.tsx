@@ -15,7 +15,7 @@ export default function Page() {
           height={720}
         />
       </div>
-      <div className="flex flex-1 flex-col">
+      <div className="flex flex-col flex-1">
         <div className="flex flex-col max-w-[720px] gap-12">
           <div className="flex flex-col gap-6">
             <Typography variant="title2" className="text-stone font-gotham">
@@ -42,14 +42,11 @@ export default function Page() {
                 </Typography>
               </div>
             </div>
-            <Typography
-              asChild
-              className="text-orange flex gap-2 text-[20px] font-medium leading-[175%] items-center"
-            >
-              <Link href={"/library"}>
+            <Link href={"/library"}>
+              <Typography className="text-orange hover:opacity-70 cursor-pointer transition-opacity duration-300 inline-flex gap-2 text-[16px] font-medium leading-[150%] items-center">
                 Go to library <ArrowLeft className="rotate-180" width={18} height={35} />
-              </Link>
-            </Typography>
+              </Typography>
+            </Link>
           </div>
           <div className="flex flex-col gap-6">
             <Typography variant="title2" className="text-stone font-gotham">
