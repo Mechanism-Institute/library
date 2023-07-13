@@ -7,7 +7,7 @@ import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Menu } from "lucide-react";
 import { Transition } from "@headlessui/react";
-import SupporterDialog from "@/components/supporter-dialog";
+import SupporterDialog from "@/components/get-involved-dialog";
 import { useAtom } from "jotai";
 import { supporterDialogAtom } from "@/state/supporter-atom";
 import clsx from "clsx";
