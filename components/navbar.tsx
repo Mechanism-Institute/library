@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex items-center justify-between w-full px-2 py-8 border-b border-divider">
-      <Link href="/">
+      <Link href="/" className="transition-opacity duration-300 cursor-pointer hover:opacity-70">
         <Image src="/logo.svg" alt="logo" width={208} height={34} />
       </Link>
 
