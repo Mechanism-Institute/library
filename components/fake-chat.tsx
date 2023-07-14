@@ -1,6 +1,6 @@
 "use client";
 
-import { Dispatch, SetStateAction } from "react";
+import { FormEvent, HTMLProps, useEffect, useRef, useState } from "react";
 import CategoriesTyping from "@/components/categories-typing";
 import Typography from "@/components/ui/typography";
 import Image from "next/image";
@@ -13,17 +13,15 @@ import {
 import Link from "next/link";
 import Globe from "@/components/ui/globe";
 import CategoryTag from "@/components/ui/category-tag";
-import { HTMLProps, useEffect, useRef, useState } from "react";
-import { Input } from "@/components/ui/input";
 import { cn } from "@/utils/shadui";
 import CategoryCircle from "@/components/ui/category-circle";
-import ArrowLeft from "@/components/ui/arrow-left";
 import clsx from "clsx";
+import { Input } from "@/components/ui/input";
+import { useAtom } from "jotai";
+import { supporterDialogAtom } from "@/state/supporter-atom";
 
 interface DisplayChatProps {
   className?: string;
-  displayChat?: boolean;
-  setDisplayChat: Dispatch<SetStateAction<boolean>>;
 }
 
 function Organization({ value }: { value: string }) {
@@ -143,6 +141,30 @@ function QuestionBubble({ children, className, ...props }: HTMLProps<HTMLDivElem
   );
 }
 
+function UserAnswerBubble({ className, ...props }: HTMLProps<HTMLDivElement>) {
+  const [, setSupportDialogOpen] = useAtom(supporterDialogAtom);
+  return (
+    <div
+      className={cn("flex flex-col p-6 bg-gray-300 max-w-[532px] rounded-3xl gap-2", className)}
+      {...props}
+    >
+      <Typography variant="chat-text">
+        Sorry, I&apos;m not actually real yet, but I will be soon! In the meantime, check out our{" "}
+        <Link className="text-orange underline font-bold" href="/library">
+          library
+        </Link>{" "}
+        and learn how you can{" "}
+        <span
+          onClick={() => setSupportDialogOpen(true)}
+          className="text-orange underline font-bold cursor-pointer"
+        >
+          get involved
+        </span>
+      </Typography>
+    </div>
+  );
+}
+
 function FirstResponseBubble({ className, ...props }: HTMLProps<HTMLDivElement>) {
   return (
     <div
@@ -189,20 +211,73 @@ function SecondResponseBubble({ className, ...props }: HTMLProps<HTMLDivElement>
   );
 }
 
+function UserInteraction({
+  children,
+  onQuestionAnimationEnd,
+  onAnswerAnimationEnd,
+}: {
+  children: React.ReactNode;
+  onQuestionAnimationEnd: () => void;
+  onAnswerAnimationEnd: () => void;
+}) {
+  const [showAnswer, setShowAnswer] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowAnswer(true);
+    }, 2000);
+  }, []);
+
+  return (
+    <>
+      <QuestionBubble className="self-end chat-message" onAnimationEnd={onQuestionAnimationEnd}>
+        {children}
+      </QuestionBubble>
+      {showAnswer ? (
+        <UserAnswerBubble
+          className="self-start chat-message"
+          onAnimationEnd={onAnswerAnimationEnd}
+        />
+      ) : (
+        <div className="self-start chat-message p-4 flex gap-2 bg-gray-300 rounded-3xl">
+          <span className="w-2 h-2 animate-pulse rounded-full bg-gray-700" />
+          <span className="w-2 h-2  animate-pulse rounded-full bg-gray-700 delay-150" />
+          <span className="w-2 h-2  animate-pulse rounded-full bg-gray-700 delay-300" />
+        </div>
+      )}
+    </>
+  );
+}
+
+const DEFAULT_MESSAGES_COUNT = 4;
+
 function Chat() {
   const [messagesCount, setMessagesCount] = useState(0);
   const [isIntervalActive, setIntervalActive] = useState(true);
   const chatContainerRef = useRef<null | HTMLDivElement>(null);
+  const [message, setMessage] = useState("");
+  const [userMessages, setUserMessages] = useState<string[]>([]);
+  const [blockInput, setBlockInput] = useState(false);
 
   const scrollToBottom = () => {
     if (!chatContainerRef.current) return;
     chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
   };
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!message) return;
+    if (messagesCount < DEFAULT_MESSAGES_COUNT) return;
+    if (blockInput) return;
+    setBlockInput(true);
+    setUserMessages((messages) => [...messages, message]);
+    setMessage("");
+  };
+
   useEffect(() => {
     let interval: NodeJS.Timer;
 
-    if (isIntervalActive && messagesCount < 4) {
+    if (isIntervalActive && messagesCount < DEFAULT_MESSAGES_COUNT) {
       interval = setInterval(() => {
         setMessagesCount((count) => count + 1);
       }, 2000);
@@ -214,37 +289,70 @@ function Chat() {
   }, [messagesCount, isIntervalActive]);
 
   return (
-    <div className="flex flex-col gap-4 transition-opacity duration-700 ease-in opacity-100">
-      <div
-        className="flex flex-col items-end h-[calc(100vh-210px)] gap-4 overflow-y-auto scroll-smooth pt-16"
-        ref={chatContainerRef}
-      >
-        <QuestionBubble
-          className="self-end chat-message"
-          onAnimationIteration={() => scrollToBottom()}
+    <>
+      <div className="flex flex-col gap-4 transition-opacity duration-700 ease-in opacity-100">
+        <div
+          className="flex flex-col items-end h-[calc(100vh-210px)] gap-4 overflow-y-auto scroll-smooth pt-16"
+          ref={chatContainerRef}
         >
-          We want to buy and own real estate around the world together. How do we coordinate and
-          finance it?
-        </QuestionBubble>
-        {messagesCount > 0 && (
-          <FirstResponseBubble
-            onAnimationEnd={() => scrollToBottom()}
-            className="self-start chat-message"
-          />
-        )}
-        {messagesCount > 1 && (
-          <QuestionBubble className="self-end chat-message" onAnimationEnd={() => scrollToBottom()}>
-            Are there examples of DAOs that have done this in the past?
+          <QuestionBubble
+            className="self-end chat-message"
+            onAnimationIteration={() => scrollToBottom()}
+          >
+            We want to buy and own real estate around the world together. How do we coordinate and
+            finance it?
           </QuestionBubble>
-        )}
-        {messagesCount > 2 && (
-          <SecondResponseBubble
-            onAnimationEnd={() => scrollToBottom()}
-            className="self-start chat-message"
-          />
-        )}
+          {messagesCount > 0 && (
+            <FirstResponseBubble
+              onAnimationEnd={() => scrollToBottom()}
+              className="self-start chat-message"
+            />
+          )}
+          {messagesCount > 1 && (
+            <QuestionBubble
+              className="self-end chat-message"
+              onAnimationEnd={() => scrollToBottom()}
+            >
+              Are there examples of DAOs that have done this in the past?
+            </QuestionBubble>
+          )}
+          {messagesCount > 2 && (
+            <SecondResponseBubble
+              onAnimationEnd={() => scrollToBottom()}
+              className="self-start chat-message"
+            />
+          )}
+          {userMessages.map((message, index) => (
+            <UserInteraction
+              key={message + index}
+              onQuestionAnimationEnd={() => {
+                scrollToBottom();
+              }}
+              onAnswerAnimationEnd={() => {
+                scrollToBottom();
+                setBlockInput(false);
+              }}
+            >
+              {message}
+            </UserInteraction>
+          ))}
+        </div>
       </div>
-    </div>
+      <form className="relative" onSubmit={handleSubmit}>
+        <Input
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          name="search"
+          type="text"
+          placeholder="Is there anything else you’d like to know?"
+          className="pr-[62px]"
+          autoComplete="off"
+        />
+        <AirplaneIcon
+          className={clsx("absolute -translate-y-1/2 top-1/2 right-6", message && "bg-gray-900")}
+        />
+      </form>
+    </>
   );
 }
 
@@ -261,10 +369,10 @@ function AirplaneIcon({ className }: { className?: string }) {
   );
 }
 
-function DynamicPlaceholder({ setDisplayChat }: DisplayChatProps) {
+function DynamicPlaceholder({ onClick }: { onClick: () => void }) {
   return (
     <div
-      onClick={() => setDisplayChat(true)}
+      onClick={onClick}
       className="flex items-center justify-between w-full px-6 py-4 transition duration-300 bg-white cursor-pointer rounded-2xl group hover:shadow-medium"
     >
       <Typography className="leading-full text-[14px] md:text-[16px] text-gray-400">
@@ -275,51 +383,27 @@ function DynamicPlaceholder({ setDisplayChat }: DisplayChatProps) {
   );
 }
 
-export default function FakeChat({ className, setDisplayChat, displayChat }: DisplayChatProps) {
-  const [value, setValue] = useState("");
-  const [showFinalMessage, setShowFinalMessage] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const inputHasValue = value.length > 0;
+export default function FakeChat({ className }: DisplayChatProps) {
+  const [displayChat, setDisplayChat] = useState(false);
 
-  const onKeyUp = (inputRef: any) => {
-    setValue(inputRef.current.value);
-  };
-
-  const onKeyDown = (e: any) => {
-    if (e.keyCode === 13) {
-      setShowFinalMessage(inputHasValue);
-    }
-  };
+  if (!displayChat) {
+    return (
+      <>
+        <div className="mb-[88px] flex flex-col">
+          <div className="flex items-center justify-center ">
+            <Image src="/hero.svg" alt="" width={1130} height={270} />
+          </div>
+        </div>
+        <div className={cn("max-w-[700px] w-full flex flex-col gap-4 rounded-3xl", className)}>
+          <DynamicPlaceholder onClick={() => setDisplayChat(true)} />
+        </div>
+      </>
+    );
+  }
 
   return (
     <div className={cn("max-w-[700px] w-full flex flex-col gap-4 rounded-3xl", className)}>
-      {displayChat ? (
-        <>
-          <Chat />
-          {/* {showFinalMessage && <div>Final message goes here</div>} */}
-          <label className="relative">
-            <Input
-              name="search"
-              type="text"
-              placeholder="Is there anything else you’d like to know?"
-              className="pr-[62px]"
-              ref={inputRef}
-              onKeyUp={() => onKeyUp(inputRef)}
-              onKeyDown={(e) => onKeyDown(e)}
-              onClick={() => setShowFinalMessage(inputHasValue)}
-              autoComplete="off"
-            />
-            <AirplaneIcon
-              className={clsx(
-                "absolute -translate-y-1/2 top-1/2 right-6",
-                inputHasValue && "bg-gray-900",
-              )}
-            />
-          </label>
-        </>
-      ) : (
-        <DynamicPlaceholder setDisplayChat={setDisplayChat} />
-      )}
+      <Chat />
     </div>
   );
 }
