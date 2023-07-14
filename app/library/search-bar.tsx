@@ -26,8 +26,13 @@ function Bar() {
     const formElements = form.elements as typeof form.elements & {
       search: HTMLInputElement;
     };
+
     const search = formElements.search.value;
-    storeLibrarySearch(search);
+
+    if (search) {
+      storeLibrarySearch(search);
+    }
+
     router.push(pathname + "?" + createQueryString(search));
   };
 
