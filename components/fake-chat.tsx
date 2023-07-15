@@ -392,14 +392,6 @@ function DynamicPlaceholder({ onClick }: { onClick: () => void }) {
 export default function FakeChat({ className }: DisplayChatProps) {
   const [displayChat, setDisplayChat] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (!displayChat) {
-        setDisplayChat(true);
-      }
-    }, 8000);
-  }, []);
-
   if (!displayChat) {
     return (
       <>
