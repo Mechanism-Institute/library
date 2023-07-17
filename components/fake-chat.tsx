@@ -20,112 +20,140 @@ import { Input } from "@/components/ui/input";
 import { useAtom } from "jotai";
 import { supporterDialogAtom } from "@/state/supporter-atom";
 import { storeChatInput } from "@/lib/store-user-input";
+import File from "./ui/file";
+import Github from "./ui/github";
 
 interface DisplayChatProps {
   className?: string;
 }
 
-function Organization({ value }: { value: string }) {
+function Organization({
+  name,
+  app,
+  docs,
+  sourcecode,
+  description,
+}: {
+  name: string;
+  app?: string;
+  docs?: string;
+  sourcecode?: string;
+  description?: string;
+}) {
   return (
-    <AccordionItem value={value}>
-      <AccordionTrigger className="flex items-center gap-2">
-        <Image src="/cow-swap.svg" alt="cow-swap" width={40} height={40} />
-        <div className="flex flex-col items-start flex-1">
-          <Typography variant="chat-text" className="font-medium leading-6 text-gray-700">
-            Cow Swap
-          </Typography>
-          <Typography className="flex gap-2 underline text-orange" asChild>
-            <Link href="https://cowswap.com">
-              <Globe className="inline" /> cowswap.app
-            </Link>
-          </Typography>
-        </div>
-      </AccordionTrigger>
-      <AccordionContent>
-        <Typography className="text-gray-700 font-normal leading-[150%]">
-          Cow Swap is a decentralized exchange that allows users to swap.
+    <div className="flex flex-col gap-4 p-4 bg-white rounded-2xl">
+      <div className="flex items-center justify-between gap-2">
+        <Typography className="text-[20px] text-gray-700 font-medium font-gotham leading-full">
+          {name}
         </Typography>
-      </AccordionContent>
-    </AccordionItem>
+        <div className="flex flex-wrap gap-2">
+          {app && (
+            <Link
+              className="p-2 text-white transition-opacity duration-300 bg-gray-500 rounded-full cursor-pointer hover:opacity-70"
+              href={app}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Globe />
+            </Link>
+          )}
+          {docs && (
+            <Link
+              className="p-2 text-white transition-opacity duration-300 bg-gray-500 rounded-full cursor-pointer hover:opacity-70"
+              href={docs}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <File />
+            </Link>
+          )}
+          {sourcecode && (
+            <Link
+              className="p-2 text-white transition-opacity duration-300 bg-gray-500 rounded-full cursor-pointer hover:opacity-70"
+              href={sourcecode}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Github />
+            </Link>
+          )}
+        </div>
+      </div>
+      {description && (
+        <Typography className="text-stone text-[12px] leading-[175%] pt-4 border-t border-gray-200 font-semilight">
+          {description}
+        </Typography>
+      )}
+    </div>
   );
 }
 
-function AirdropAction({ value }: { value: string }) {
+function BondingCurveToken({ value }: { value: string }) {
   return (
     <AccordionItem value={value}>
       <AccordionTrigger>
         <div className="flex items-center justify-between flex-1 gap-2">
           <div className="flex items-center gap-2">
             <Typography variant="chat-text" className="inline font-medium leading-6 text-gray-700">
-              Airdrop
-            </Typography>
-            <Typography className="inline leading-[24px] font-[350] text-gray-400 text-sm">
-              (Merkle Drop)
+              Bonding Curve Token
             </Typography>
           </div>
-          <CategoryCircle variant="value-allocation" className="mr-4 " />
+          <CategoryTag variant="fundraising" className="mr-4" />
         </div>
       </AccordionTrigger>
       <AccordionContent className="pt-0 border-t-0">
         <div>
-          <Typography className="text-gray-700 font-normal leading-[150%] py-4 border-y border-divider">
-            A distribution mechanism where tokens are given away for free to a specific group of
-            people or randomly to anyone who meets certain criteria...
+          <Typography className="text-gray-700 font-normal leading-[150%] pt-4 border-t border-divider">
+            A token whose price is determined by a mathematical curve based on supply and demand.
+            The price increases as more tokens are purchased and decreases as more tokens are sold.
           </Typography>
-          <CategoryTag variant="value-allocation" className="mt-4" />
         </div>
       </AccordionContent>
     </AccordionItem>
   );
 }
 
-function StakingGauge({ value }: { value: string }) {
+function PaymentSplitter({ value }: { value: string }) {
   return (
     <AccordionItem value={value}>
       <AccordionTrigger>
         <div className="flex items-center justify-between flex-1 gap-2">
-          <Typography variant="chat-text" className="inline font-medium leading-6 text-gray-700">
-            Staking Gauges
-          </Typography>
-          <div className="flex mr-4">
-            <CategoryCircle variant="value-allocation" className="z-[1] -mr-2" />
-            <CategoryCircle variant="budgeting" className="z-[2]" />
+          <div className="flex items-center gap-2">
+            <Typography variant="chat-text" className="inline font-medium leading-6 text-gray-700">
+              Payment Splitter
+            </Typography>
           </div>
+          <CategoryTag variant="value-allocation" className="mr-4" />
         </div>
       </AccordionTrigger>
       <AccordionContent className="pt-0 border-t-0">
         <div>
-          <Typography className="text-gray-700 font-normal leading-[150%] py-4 border-y border-divider">
-            A distribution mechanism where tokens are given away for free to a specific group of
-            people or randomly to anyone who meets certain criteria...
+          <Typography className="text-gray-700 font-normal leading-[150%] pt-4 border-t border-divider">
+            Divides incoming payments among multiple recipients according to hardcoded or dynamic
+            ownership percentages.
           </Typography>
-          <div className="flex gap-2 mt-4">
-            <CategoryTag variant="value-allocation" />
-            <CategoryTag variant="budgeting" />
-          </div>
         </div>
       </AccordionContent>
     </AccordionItem>
   );
 }
 
-function AllPlayAuction({ value }: { value: string }) {
+function ConvictionVoting({ value }: { value: string }) {
   return (
     <AccordionItem value={value}>
       <AccordionTrigger>
         <div className="flex items-center justify-between flex-1 gap-2">
           <Typography variant="chat-text" className="inline font-medium leading-6 text-gray-700">
-            All-pay Auction
+            Conviction Voting
           </Typography>
-          <CategoryCircle variant="fundraising" className="mr-4" />
+          <CategoryTag variant="governance" className="mr-4" />
         </div>
       </AccordionTrigger>
       <AccordionContent className="pt-0 border-t-0">
         <div>
-          <Typography className="text-gray-700 font-normal leading-[150%] py-4 border-y border-divider">
-            Auctions in which all bidders must pay their bid.
+          <Typography className="text-gray-700 font-normal leading-[150%] pt-4 border-t border-divider">
+            Proposals are passed based on aggregated continuous preferences of community members.
           </Typography>
-          <CategoryTag variant="fundraising" className="mt-4" />
         </div>
       </AccordionContent>
     </AccordionItem>
@@ -186,18 +214,17 @@ function FirstResponseBubble({ className, ...props }: HTMLProps<HTMLDivElement>)
         className="flex items-baseline gap-x-1 gap-y-[3px] self-stretch flex-wrap pb-4"
       >
         Your solution requires <CategoryTag variant="fundraising" />,
-        <CategoryTag variant="budgeting" />
-        and <CategoryTag variant="value-allocation" />
+        <CategoryTag variant="value-allocation" />
+        and <CategoryTag variant="governance" />
       </Typography>
       <div className="flex flex-col gap-2">
         <Typography variant="chat-text" className="leading-[175%] mt-4">
-          The following mechanisms can be helpful when you’re trying to finance and coordinate
-          collective ownership of real estate abroad:
+          Here are a few mechanisms you can consider
         </Typography>
         <Accordion type="multiple" className="flex flex-col gap-4">
-          <AirdropAction value="item-1" />
-          <StakingGauge value="item-2" />
-          <AllPlayAuction value="item-3" />
+          <BondingCurveToken value="item-1" />
+          <PaymentSplitter value="item-2" />
+          <ConvictionVoting value="item-3" />
         </Accordion>
       </div>
     </div>
@@ -217,8 +244,17 @@ function SecondResponseBubble({ className, ...props }: HTMLProps<HTMLDivElement>
         Take a look at these organizations who have had used similar mechanisms:
       </Typography>
       <Accordion type="multiple" className="flex flex-col gap-4">
-        <Organization value="item-1" />
-        <Organization value="item-2" />
+        <Organization
+          name="AaveGotchi"
+          app="https://app.aavegotchi.com/curve"
+          sourcecode="https://wiki.aavegotchi.com/en/tokenomics"
+          description="GHST is sold for DAI on a bonding curve that is gated to users who have been approved through a centralized KYC process. GHST is a currency token that users can spend on portals and wearables. Spent GHST is split between users via rarity farming, the developer team, the community DAO, and a portion is burned which increases the bonding curve price all things equal."
+        />
+        <Organization
+          name="DeSo"
+          app="https://www.deso.com/"
+          description="Each user has a personal bonding curve token that any user can buy tokens from. Users can share revenue with their token holders by selling goods and access to services that share revenue with the curve, thereby bringing the token redemption price all else equal."
+        />
       </Accordion>
     </div>
   );
@@ -319,15 +355,15 @@ function Chat() {
           ref={chatContainerRef}
         >
           <QuestionBubble className="self-end" onAnimationIteration={() => scrollToBottom()}>
-            We want to buy and own real estate around the world together. How do we coordinate and
-            finance it?
+            I want to create an easy-to-use, efficient transit system for a fast-growing city.
           </QuestionBubble>
           {messagesCount > 0 && (
             <FirstResponseBubble onAnimationEnd={() => scrollToBottom()} className="self-start" />
           )}
           {messagesCount > 1 && (
             <QuestionBubble className="self-end" onAnimationEnd={() => scrollToBottom()}>
-              Are there examples of DAOs that have done this in the past?
+              Are there any examples of past projects that used bonding curves combined with revenue
+              share?
             </QuestionBubble>
           )}
           {messagesCount > 2 && (
