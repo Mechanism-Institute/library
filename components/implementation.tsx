@@ -33,7 +33,9 @@ export default function Implementation({ implementation }: { implementation: Imp
               target="_blank"
               rel="noreferrer"
             >
-              <Globe />
+              <div className="flex items-center justify-center w-5 h-5">
+                <Globe />
+              </div>
             </Link>
           )}
           {implementation.docs && (
@@ -43,7 +45,9 @@ export default function Implementation({ implementation }: { implementation: Imp
               target="_blank"
               rel="noreferrer"
             >
-              <File />
+              <div className="flex items-center justify-center w-5 h-5">
+                <File />
+              </div>
             </Link>
           )}
           {implementation.sourcecode && (
@@ -53,7 +57,9 @@ export default function Implementation({ implementation }: { implementation: Imp
               target="_blank"
               rel="noreferrer"
             >
-              <Github />
+              <div className="flex items-center justify-center w-5 h-5">
+                <Github />
+              </div>
             </Link>
           )}
         </div>

@@ -2,6 +2,11 @@ import Image from "next/image";
 import Typography from "@/components/ui/typography";
 import Link from "next/link";
 import ArrowLeft from "@/components/ui/arrow-left";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Mechanism Institute | About",
+};
 
 export default function Page() {
   return (

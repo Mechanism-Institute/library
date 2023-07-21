@@ -3,6 +3,11 @@ import CategoryFilter from "@/app/library/category-filter";
 import MechanismsList from "@/components/mechanisms-list";
 import { cn } from "@/utils/shadui";
 import SearchBar from "@/app/library/search-bar";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Mechanism Institute | Mechanism Library",
+};
 
 function CategoryFilters({ className }: { className?: string }) {
   return (

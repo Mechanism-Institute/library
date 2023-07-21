@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Metadata } from "next";
 import { gotham, robotoMono } from "@/fonts";
 import { MechanismCategory } from "@/types/mechanism-category";
 import Providers from "@/components/providers";
@@ -17,6 +18,13 @@ const backgroundVariants: Record<MechanismCategory, string> = {
   fundraising: "bg-green",
   governance: "bg-brown",
   identity: "bg-pink",
+};
+
+export const metadata: Metadata = {
+  title: "Mechanism Institute",
+  description:
+    "An independent think tank, membership organization and publisher advancing the industry through open resources, applied research and solution design for digital-age institutions solving real-world problems.",
+  icons: ["/favicon.svg"],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
