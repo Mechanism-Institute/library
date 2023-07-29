@@ -153,6 +153,7 @@ export default function SupporterDialog() {
                         How would you like to get involved?<span className="text-orange">*</span>
                       </FormLabel>
                       <Select
+                        closeMenuOnSelect={false}
                         required
                         value={field.value?.map((value) => ({
                           value,
