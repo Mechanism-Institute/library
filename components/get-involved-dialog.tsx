@@ -45,7 +45,7 @@ export default function SupporterDialog() {
 
   const { mutate, isLoading } = useMutation<void, Error, z.infer<typeof formSchema>>({
     mutationFn: async (values) => {
-      await storeGetInvolvedSubmit({ ...values, involvement: values.involvement.join(", ") });
+      await storeGetInvolvedSubmit({ ...values });
     },
     onSuccess: () => {
       setSubmitted(true);
