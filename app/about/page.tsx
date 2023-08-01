@@ -24,47 +24,65 @@ export default function Page() {
         <div className="flex flex-col max-w-[720px] gap-12">
           <div className="flex flex-col gap-6">
             <Typography variant="title2" className="text-stone font-gotham">
-              Enhancing coordination with mechanism design
+              What?
             </Typography>
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-2">
+                <Typography variant="subtitle2" className="text-stone font-gotham">
+                  Enhancing coordination with mechanism design
+                </Typography>
                 <Typography variant="body" className="leading-[175%]">
-                 Mechanism Institute brings together builders and researchers to unlock the positive-sum potential of mechanism design. We provide open resources and applied research that advance cryptoeconomic building blocks for digital-age institutions.
+                  We are an independent think tank, membership organization and publisher advancing
+                  the industry through open resources, applied research and solution design for
+                  digital-age institutions solving real-world problems.
+                </Typography>
+              </div>
+              <div className="flex flex-col gap-2">
+                <Typography variant="subtitle2" className="text-stone font-gotham">
+                  The Mechanism Library
+                </Typography>
+                <Typography variant="body" className="leading-[175%]">
+                  Generate custom mechanisms using our AI chat bot and crowdsourced intelligence of
+                  leading primitives to find solutions for your project or protocol.
                 </Typography>
               </div>
             </div>
+            <Link href={"/library"}>
+              <Typography className="text-orange hover:opacity-70 cursor-pointer transition-opacity duration-300 inline-flex gap-2 text-[16px] font-medium leading-[150%] items-center">
+                Go to library <ArrowLeft className="rotate-180" width={18} height={35} />
+              </Typography>
+            </Link>
           </div>
           <div className="flex flex-col gap-6">
-              <Typography variant="body" className="leading-[175%]">
-              Our primary areas of focus are:
-              </Typography>
+            <Typography variant="title2" className="text-stone font-gotham">
+              Who?
+            </Typography>
+            <Typography variant="body" className="leading-[175%]">
+              Members are global leaders in the their field focused on implementing solutions to
+              societal challenges
+            </Typography>
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-2">
                 <Typography variant="subtitle2" className="text-stone font-gotham">
-                  Research and experimentation
+                  The Mechanism Lab
                 </Typography>
                 <Typography variant="body" className="leading-[175%]">
-                  We conduct cross-disciplinary research, design competitions, and carefully crafted experiments to discover how different mechanisms can be employed to solve particular coordination problems.
+                  Where our researchers expand the frontier of mechanism design. We host mechanism
+                  design competitions, applied research sprints, design tools and frameworks.
                 </Typography>
               </div>
               <div className="flex flex-col gap-2">
                 <Typography variant="subtitle2" className="text-stone font-gotham">
-                  Pattern library
+                  The Mechanism Alliance
                 </Typography>
                 <Typography variant="body" className="leading-[175%]">
-                We're compiling a catalogue of mechanism design patterns so that anyone can easily navigate the full solution space and learn from the successes and failures of real case studies.
-                </Typography>
-              </div>
-              <div className="flex flex-col gap-2">
-                <Typography variant="subtitle2" className="text-stone font-gotham">
-                  Ecosystem building
-                </Typography>
-                <Typography variant="body" className="leading-[175%]">
-                   We facilitate knowledge sharing, collaboration, and innovation between partners in academia and industry that are committed to advancing mechanism design.
+                  Fosters collaboration, knowledge sharing, and innovation across organizations
+                  committed to advancing mechanism design. It provides a forum for member
+                  organizations to contribute to the development and application of cryptoeconomics,
+                  shaping the future of digital-age institutions.
                 </Typography>
               </div>
             </div>
-
           </div>
         </div>
       </div>
