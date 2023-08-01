@@ -14,7 +14,6 @@ import ReactMarkdown from "react-markdown";
 async function getAggregatedMechanism(id: string) {
   const mechanism = await getMechanism(id);
   if (!mechanism) return null;
-  console.log(mechanism.implementations);
   const implementations = await getImplementations(mechanism.implementations);
   return {
     ...mechanism,
@@ -86,8 +85,7 @@ export default async function Page({ params }: { params: { id: string } }) {
               <Separator />
               {mechanism.discussion && (
                 <article className="prose">
-                  {/* eslint-disable-next-line react/no-children-prop */}
-                  <ReactMarkdown children={mechanism.discussion} />
+                  <ReactMarkdown>{mechanism.discussion}</ReactMarkdown>
                 </article>
               )}
               {mechanism.resources.length > 0 && (
