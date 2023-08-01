@@ -5,6 +5,8 @@ import Globe from "@/components/ui/globe";
 import Link from "next/link";
 import File from "@/components/ui/file";
 import Github from "@/components/ui/github";
+import ReactMarkdown from "react-markdown";
+import { Separator } from "@/components/ui/separator";
 
 const formatUrl = (url: string) => url.replace(/(^\w+:|^)\/\//, "").replace(/\/$/, "");
 
@@ -64,9 +66,10 @@ export default function Implementation({ implementation }: { implementation: Imp
           )}
         </div>
       </div>
+      <Separator />
       {implementation.description && (
-        <Typography className="text-stone text-[16px] leading-[175%] pt-4 border-t border-gray-200 font-semilight">
-          {implementation.description}
+        <Typography className="text-stone text-[16px] leading-[175%] font-semilight prose">
+          <ReactMarkdown>{implementation.description}</ReactMarkdown>
         </Typography>
       )}
     </div>
