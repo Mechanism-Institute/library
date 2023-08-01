@@ -10,6 +10,7 @@ import { parseResourcesString } from "@/utils/parse-resources-string";
 import { Separator } from "@/components/ui/separator";
 import Implementation from "@/components/implementation";
 import ReactMarkdown from "react-markdown";
+import Test from "@/components/test";
 
 async function getAggregatedMechanism(id: string) {
   const mechanism = await getMechanism(id);
@@ -41,6 +42,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <>
+      <Test mechanism={mechanism} />
       <Image
         src="/watermark.svg"
         alt="watermakr"
