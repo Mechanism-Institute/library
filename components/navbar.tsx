@@ -18,33 +18,37 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const activePage = usePathname();
+  const isHome = activePage === "/";
 
-  const navLinkClasses = "cursor-pointer hover:opacity-70 transition-opacity duration-300";
   const activeClasses =
-    "underline underline-offset-[44px] decoration-4 decoration-gray-900 text-gray-900";
+    "underline underline-offset-[49px] decoration-4 decoration-gray-900 text-gray-900";
 
   return (
     <nav className="flex items-center justify-between w-full px-2 py-8 border-b border-divider">
       <Link href="/" className="transition-opacity duration-300 cursor-pointer hover:opacity-70">
-        <Image src="/logo.svg" alt="logo" width={64} height={32} />
+        <Image
+          src={isHome ? "/logomark.svg" : "/logo.svg"}
+          alt="logo"
+          width={isHome ? 37 : 151}
+          height={40}
+        />
       </Link>
       <div className="hidden gap-10 md:flex">
         <Typography
-          className={clsx(navLinkClasses, activePage === "/about" && activeClasses)}
+          className={clsx(activePage === "/about" && activeClasses)}
           variant="nav-link"
           asChild
         >
           <Link href="/about">About</Link>
         </Typography>
         <Typography
-          className={clsx(navLinkClasses, activePage === "/library" && activeClasses)}
+          className={clsx(activePage === "/library" && activeClasses)}
           variant="nav-link"
           asChild
         >
           <Link href="/library">Library</Link>
         </Typography>
         <Typography
-          className={navLinkClasses}
           variant="nav-link"
           onClick={() => {
             setOpen(false);

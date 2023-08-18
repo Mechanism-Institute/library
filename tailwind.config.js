@@ -13,7 +13,6 @@ module.exports = {
     extend: {
       fontFamily: {
         gotham: ["var(--font-gotham)"],
-        mono: ["var(--font-mono)"],
       },
       fontWeight: {
         semilight: 350,
@@ -29,15 +28,15 @@ module.exports = {
           DEFAULT: "#231F20",
         },
         gray: {
-          50: "#FBFBFA",
-          100: "#F8F7F6",
-          200: "#F1E9E4",
-          300: "#E0DCD9",
-          400: "#BEB5AE",
-          500: "#97887E",
-          600: "#6D645B",
-          700: "#554D46",
-          900: "#231E1B",
+          50: "#FFFBFA",
+          100: "#F9F7F6",
+          200: "#F5EDED",
+          300: "#E3DADA",
+          400: "#B7B2B2",
+          500: "#8C8888",
+          600: "#696464",
+          700: "#544D4D",
+          900: "#231E1E",
         },
         divider: {
           DEFAULT: "rgba(35, 31, 32, 0.10)",

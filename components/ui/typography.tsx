@@ -9,7 +9,8 @@ const typographyVariants = cva("", {
     variant: {
       base: "leading-full text-gray-900",
       body: "leading-[150%] font-semilight text-stone text-[16px]",
-      "nav-link": "text-gray-600 uppercase",
+      "nav-link":
+        "text-gray-500 font-bold uppercase hover:text-gray-900 transition-colors duration-300 cursor-pointer",
       "hero-title": "text-[28px] leading-full text-gray-900",
       "chat-text": "text-[14px] leading-[150%] font-normal text-gray-900",
       title: "text-[48px] leading-full font-medium text-gray-900",

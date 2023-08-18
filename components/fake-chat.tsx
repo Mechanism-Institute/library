@@ -424,9 +424,9 @@ function DynamicPlaceholder({ onClick }: { onClick: () => void }) {
   return (
     <div
       onClick={onClick}
-      className="flex items-center justify-between w-full px-6 py-4 transition duration-300 bg-white cursor-pointer rounded-2xl group hover:shadow-medium"
+      className="flex items-center justify-between w-full px-6 py-4 transition duration-300 bg-white shadow-lg cursor-text rounded-2xl group hover:shadow-medium"
     >
-      <Typography className="leading-full text-[14px] md:text-[16px] text-gray-400">
+      <Typography className="leading-full text-[14px] md:text-[16px] text-gray-400 space-x-px">
         <span>Solve</span> <CategoriesTyping /> <span>with mechanism design</span>
       </Typography>
       <AirplaneIcon />

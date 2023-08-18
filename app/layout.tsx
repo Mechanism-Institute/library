@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Metadata } from "next";
-import { gotham, robotoMono } from "@/fonts";
+import { gotham } from "@/fonts";
 import { MechanismCategory } from "@/types/mechanism-category";
 import Providers from "@/components/providers";
 import { cn } from "@/utils/shadui";
@@ -11,7 +11,7 @@ import Footer from "@/components/footer";
 // the type is to ensure every category is covered
 const backgroundVariants: Record<MechanismCategory, string> = {
   "value-capture": "bg-orange",
-  "market": "bg-purple",
+  market: "bg-purple",
   "value-transfer": "bg-yellow",
   fundraising: "bg-green",
   governance: "bg-brown",
@@ -30,10 +30,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body
         className={cn(
-          robotoMono.variable,
           gotham.variable,
-          robotoMono.className,
-          "flex h-[100vh] flex-col px-4 lg:px-20 bg-gray-200",
+          "font-gotham flex h-[100vh] flex-col px-4 lg:px-20 bg-gray-200",
         )}
       >
         <Providers>

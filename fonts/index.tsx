@@ -1,5 +1,4 @@
 import localFont from "next/font/local";
-import { Roboto_Mono } from "next/font/google";
 
 export const gotham = localFont({
   display: "swap",
@@ -36,10 +35,4 @@ export const gotham = localFont({
       style: "normal",
     },
   ],
-});
-
-export const robotoMono = Roboto_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  display: "swap",
 });
