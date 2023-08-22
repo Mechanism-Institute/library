@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 
 function Skeletons() {
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4">
       {Array.from({ length: 16 }).map((_, i) => (
         <div
           key={`skeleton_${i}`}
@@ -60,7 +60,7 @@ export default function MechanismsList() {
 
   return (
     <>
-      <div className="w-full grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4">
         {data.pages.map((page, index) => (
           <Fragment key={`page_${index}`}>
             {page.mechanisms.map((mechanism) => (
@@ -69,7 +69,7 @@ export default function MechanismsList() {
           </Fragment>
         ))}
       </div>
-      <div className="mt-10 flex w-full justify-center">
+      <div className="flex justify-center w-full mt-10">
         {hasNextPage ? (
           <Button
             ref={ref}

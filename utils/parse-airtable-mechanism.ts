@@ -15,6 +15,11 @@ function sanitizeCategory(category: string) {
   return category.replace(/[^a-z0-9\s]/gi, "").trim();
 }
 
+export function slugify(text: string)
+{
+  return text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
+}
+
 export function parseAirtableMechanism(airtableMechanism: AirtableMechanism): Mechanism {
   let category: string;
   let secondaryCategories: string[] | undefined;
@@ -28,8 +33,11 @@ export function parseAirtableMechanism(airtableMechanism: AirtableMechanism): Me
     category = airtableMechanism.fields.Type[0] as MechanismCategory;
   }
 
+  const slug = slugify(airtableMechanism.fields.Name);
+
   return {
     id: airtableMechanism.id,
+    slug: slug,
     createdTime: airtableMechanism.createdTime,
     name: airtableMechanism.fields.Name,
     alternativeNames: [airtableMechanism.fields.AlternativeNames].filter(Boolean),

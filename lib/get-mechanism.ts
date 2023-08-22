@@ -1,10 +1,10 @@
-import { parseAirtableMechanism } from "@/utils/parse-airtable-mechanism";
+import { parseAirtableMechanism, slugify } from "@/utils/parse-airtable-mechanism";
 import { AirtableMechanism } from "@/types/airtable-mechanism";
 import { MECHANISMS_TABLE_ID } from "@/config/table-names";
 
-export async function getMechanism(id: string) {
+export async function getMechanism(slug: string) {
   const request = await fetch(
-    `https://api.airtable.com/v0/appocudTAOitQmuud/${MECHANISMS_TABLE_ID}/${id}`,
+    `https://api.airtable.com/v0/appocudTAOitQmuud/${MECHANISMS_TABLE_ID}`,
     {
       headers: {
         Authorization: `Bearer ${process.env.AIRTABLE_PAT}`,
@@ -20,7 +20,10 @@ export async function getMechanism(id: string) {
     throw new Error(JSON.stringify(await request.json(), null, 2));
   }
 
-  const response = (await request.json()) as AirtableMechanism;
+  const responses = (await request.json());
 
-  return parseAirtableMechanism(response);
+  const mechanism = responses.records.find((response: any) => slugify(response.fields.Name) === slug) as AirtableMechanism;
+
+  return parseAirtableMechanism(mechanism);
+
 }

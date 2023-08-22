@@ -11,8 +11,8 @@ import { Separator } from "@/components/ui/separator";
 import Implementation from "@/components/implementation";
 import ReactMarkdown from "react-markdown";
 
-async function getAggregatedMechanism(id: string) {
-  const mechanism = await getMechanism(id);
+async function getAggregatedMechanism(slug: string) {
+  const mechanism = await getMechanism(slug);
   if (!mechanism) return null;
   const implementations = await getImplementations(mechanism.implementations);
   return {
@@ -22,8 +22,9 @@ async function getAggregatedMechanism(id: string) {
   } satisfies AggregatedMechanism;
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const mechanism = await getAggregatedMechanism(params.id);
+export default async function Page({ params }: { params: { slug: string } }) {
+  console.log("PARAMS", params);
+  const mechanism = await getAggregatedMechanism(params.slug);
 
   if (!mechanism)
     return (
