@@ -22,7 +22,12 @@ export const metadata: Metadata = {
   title: "Mechanism Institute",
   description:
     "Mechanism Institute is a think tank that advances building blocks for digital-age institutions. We bring together builders and researchers to study, develop, simulate, and apply mechanisms to solve coordination problems.",
-  icons: ["/favicon.svg"],
+  icons: [
+    {
+      url: "/favicon.ico",
+      sizes: "any",
+    },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
