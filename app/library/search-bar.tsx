@@ -3,17 +3,27 @@
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useCallback } from "react";
+import { Suspense, useCallback, useEffect, useState } from "react";
 import { storeLibrarySearch } from "@/lib/store-user-input";
+import Typography from "@/components/ui/typography";
 
 function Bar() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams()!;
+  const [terms, setSearchTerms] = useState<string[]>([]);
+
+  useEffect(() => {
+    const searchQuery = searchParams.get("search");
+    if (searchQuery) {
+      setSearchTerms([searchQuery]);
+    }
+  }, [searchParams]);
 
   const createQueryString = useCallback(
     (value: string) => {
       const params = new URLSearchParams(searchParams.toString());
+      console.log(terms, searchParams);
       params.set("search", value);
       return params.toString();
     },
@@ -32,26 +42,43 @@ function Bar() {
     if (search) {
       storeLibrarySearch(search);
     }
+    setSearchTerms([search]);
 
     router.push(pathname + "?" + createQueryString(search));
   };
 
   return (
-    <form className="relative" onSubmit={handleSubmit}>
-      <Image
-        src="/magnifying-glass.svg"
-        alt="magnifying glass"
-        className="absolute pointer-events-none top-1/2 -translate-y-1/2 left-6 text-gray-400"
-        width={30}
-        height={30}
-      />
-      <Input
-        name="search"
-        type="text"
-        placeholder="Search by mechanism, project, or keyword"
-        className="pl-[62px] py-5"
-      />
-    </form>
+    <>
+      <form className="relative" onSubmit={handleSubmit}>
+        <Image
+          src="/magnifying-glass.svg"
+          alt="magnifying glass"
+          className="absolute text-gray-400 -translate-y-1/2 pointer-events-none top-1/2 left-6"
+          width={30}
+          height={30}
+        />
+        <Input
+          name="search"
+          type="text"
+          placeholder="Search by mechanism, project, or keyword"
+          className="pl-[62px] py-5"
+        />
+      </form>
+      {terms && (
+        <>
+          {terms?.map((term: string) => (
+            <div>
+              <Typography variant="subtitle" className="inline-block">
+                Search results for:
+              </Typography>
+              <Typography variant="subtitle" className="inline-block ml-2 font-bold">
+                {term}
+              </Typography>
+            </div>
+          ))}
+        </>
+      )}
+    </>
   );
 }
 
