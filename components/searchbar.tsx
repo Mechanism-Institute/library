@@ -36,7 +36,6 @@ export default function SearchBar() {
             autoComplete="off"
           />
           <AirplaneIcon className={clsx("absolute -translate-y-1/2 top-1/2 right-6 bg-gray-900")} />
-          <button type="submit" aria-label="Search" className="hidden" />
         </form>
       </div>
     </>
@@ -45,13 +44,14 @@ export default function SearchBar() {
 
 function AirplaneIcon({ className }: { className?: string }) {
   return (
-    <div
+    <button
+      type="submit"
       className={clsx(
         "flex items-center justify-center w-[30px] h-[30px] bg-gray-400 rounded-full group-hover:bg-gray-900 transition-color duration-300",
         className,
       )}
     >
       <Image src="/paper-plane.svg" alt="paper-plane" width={14} height={14} />
-    </div>
+    </button>
   );
 }
