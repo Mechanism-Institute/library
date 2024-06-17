@@ -4,14 +4,14 @@ export const CATEGORIES = [
   "fundraising",
   "value-capture",
   "value-distribution",
-  "trading",
+  "exchange",
   "governance",
   "data",
 ] as const;
 
 export const CATEGORY_LABELS: Record<MechanismCategory, string> = {
   "value-capture": "Value Capture",
-  "trading": "Trading",
+  "exchange": "Exchange",
   "value-distribution": "Value Distribution",
   fundraising: "Fundraising",
   governance: "Governance",
@@ -20,7 +20,7 @@ export const CATEGORY_LABELS: Record<MechanismCategory, string> = {
 
 export const CATEGORIES_BACKGROUNDS: Record<MechanismCategory, string> = {
   "value-capture": "bg-orange",
-  "trading": "bg-purple",
+  "exchange": "bg-purple",
   "value-distribution": "bg-yellow",
   fundraising: "bg-green",
   governance: "bg-brown",
