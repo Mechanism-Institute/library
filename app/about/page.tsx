@@ -44,9 +44,6 @@ export default function Page() {
                   </Typography>
                 </div>
                 <Typography variant="body" className="leading-[175%]">
-                  With these properties, on-chain mechanisms offer a paradigm shift from legacy institutions. Yet, these mechanisms remain misunderstood and underexplored.
-                </Typography>
-                <Typography variant="body" className="leading-[175%]">
                   Yet, these mechanisms remain underexplored and poorly understood.
                 </Typography>
               </div>
@@ -61,7 +58,7 @@ export default function Page() {
                 The Library
               </Typography>
               <Typography variant="body" className="leading-[175%]">
-                Mapping the mechanism design space to shed light on the range of onchain experiments that have taken place to date.
+                Mapping the mechanism design space to illuminate the range of onchain experiments conducted to date.
               </Typography>
             </div>
             <div className="flex flex-col gap-2">
@@ -69,7 +66,7 @@ export default function Page() {
                 Research Reports
               </Typography>
               <Typography variant="body" className="leading-[175%]">
-                Deep-diving into how existing mechanisms can be composed to solve complex problems in particular domains.
+                Deep-diving into how existing mechanisms can be composed to solve complex problems in specific domains.
               </Typography>
             </div>
             <div className="flex flex-col gap-2">
