@@ -10,7 +10,7 @@ test("parseAirtableMechanism", () => {
     fields: {
       Name: "Test Mechanism",
       Description: "This is a test mechanisms",
-      Type: [CATEGORY_LABELS["value-transfer"]],
+      Type: [CATEGORY_LABELS["allocation"]],
       Approved: true,
       Upvotes: 0,
       Implementations: [""],
@@ -46,7 +46,7 @@ test("parseAirtableMechanism with secondary categories", () => {
       Name: "Test Mechanism",
       Description: "This is a test mechanisms",
       Type: [
-        CATEGORY_LABELS["value-transfer"],
+        CATEGORY_LABELS["allocation"],
         CATEGORY_LABELS["value-capture"],
         CATEGORY_LABELS["fundraising"],
         CATEGORY_LABELS["governance"],
@@ -69,7 +69,7 @@ test("parseAirtableMechanism with secondary categories", () => {
     expect(result.createdTime).toBe("2023-07-09T00:00:00.000Z");
     expect(result.name).toBe("Test Mechanism");
     expect(result.description).toBe("This is a test mechanisms");
-    expect(result.category).toBe("value-transfer");
+    expect(result.category).toBe("allocation");
     expect(result.secondaryCategories).toEqual(["value-capture", "fundraising", "governance"]);
     expect(result.discussion).toBe("Discussion");
   } else {
