@@ -12,8 +12,9 @@ import Footer from "@/components/footer";
 const backgroundVariants: Record<MechanismCategory, string> = {
   "value-capture": "bg-orange",
   exchange: "bg-purple",
-  "value-distribution": "bg-yellow",
+  "allocation": "bg-yellow",
   fundraising: "bg-green",
+  "rewards-and-penalties": "bg-teal",
   governance: "bg-brown",
   data: "bg-pink",
 };
