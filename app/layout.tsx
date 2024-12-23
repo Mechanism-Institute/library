@@ -14,6 +14,7 @@ const backgroundVariants: Record<MechanismCategory, string> = {
   exchange: "bg-purple",
   "allocation": "bg-yellow",
   fundraising: "bg-green",
+  rewards-penalties: "bg-blue",
   governance: "bg-brown",
   data: "bg-pink",
 };
