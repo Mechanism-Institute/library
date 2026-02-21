@@ -1,7 +1,7 @@
 import { cva, VariantProps } from "class-variance-authority";
 import { MechanismCategory } from "@/types/mechanism-category";
 import * as React from "react";
-import { CATEGORIES_BACKGROUNDS, CATEGORY_LABELS } from "@/config/categories";
+import { CATEGORIES_BACKGROUNDS, CATEGORY_LABELS, CATEGORY_DESCRIPTIONS } from "@/config/categories";
 
 const categoryVariants = cva(
   [
@@ -28,7 +28,7 @@ const CategoryTag = React.forwardRef<HTMLSpanElement, CategoryProps>(
     }
 
     return (
-      <span className={categoryVariants({ variant, className })} ref={ref} {...props}>
+      <span className={categoryVariants({ variant, className })} ref={ref} title={CATEGORY_DESCRIPTIONS[variant]} {...props}>
         {CATEGORY_LABELS[variant]}
         {children}
       </span>

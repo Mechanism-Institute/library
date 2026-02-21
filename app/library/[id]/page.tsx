@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CategoryTag from "@/components/ui/category-tag";
+import CategoryTags from "@/app/library/[id]/category-tags";
 import Link from "next/link";
 import Typography from "@/components/ui/typography";
 import ArrowLeft from "@/components/ui/arrow-left";
@@ -7,9 +7,19 @@ import { getMechanismBySlug, getAllMechanismSlugs } from "@/lib/get-data";
 import { Separator } from "@/components/ui/separator";
 import Implementation from "@/components/implementation";
 import ReactMarkdown from "react-markdown";
+import { Metadata } from "next";
 
 export function generateStaticParams() {
   return getAllMechanismSlugs().map((slug) => ({ id: slug }));
+}
+
+export function generateMetadata({ params }: { params: { id: string } }): Metadata {
+  const mechanism = getMechanismBySlug(params.id);
+  if (!mechanism) return { title: "Not Found | Mechanism Institute" };
+  return {
+    title: `${mechanism.name} | Mechanism Institute`,
+    description: mechanism.description,
+  };
 }
 
 export default async function Page({ params }: { params: { id: string } }) {
@@ -62,12 +72,10 @@ export default async function Page({ params }: { params: { id: string } }) {
                     </Typography>
                   ))}
                 </div>
-                <div className="flex flex-wrap gap-1">
-                  <CategoryTag variant={mechanism.category} className="w-fit" />
-                  {mechanism.secondaryCategories?.map((category) => (
-                    <CategoryTag key={category} variant={category} className="w-fit" />
-                  ))}
-                </div>
+                <CategoryTags
+                  category={mechanism.category}
+                  secondaryCategories={mechanism.secondaryCategories}
+                />
                 <Typography className="text-[22px] leading-[160%] font-semilight">
                   {mechanism.description}
                 </Typography>

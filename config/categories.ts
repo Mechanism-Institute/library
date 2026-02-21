@@ -29,3 +29,13 @@ export const CATEGORIES_BACKGROUNDS: Record<MechanismCategory, string> = {
   "exchange": "bg-purple",
   "data": "bg-pink",
 };
+
+export const CATEGORY_DESCRIPTIONS: Record<MechanismCategory, string> = {
+  "fundraising": "Coordinating the flow of capital into a system.",
+  "allocation": "Distributing scarce resources among participants.",
+  "value-capture": "Retaining and monetizing generated value.",
+  "governance": "Structuring permissions and decision-making rules.",
+  "rewards-and-penalties": "Shaping incentives to influence behavior.",
+  "exchange": "Facilitating the transfer, trade, and pricing of assets.",
+  "data": "Managing information flow, integrity, and access.",
+};
