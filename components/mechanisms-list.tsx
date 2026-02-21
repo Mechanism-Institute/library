@@ -3,9 +3,7 @@
 import useMechanismQuery from "@/hooks/use-mechanism-query";
 import MechanismCard from "@/components/mechanism-card";
 import Typography from "@/components/ui/typography";
-import { Fragment, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/navigation";
 
 function Skeletons() {
@@ -23,21 +21,12 @@ function Skeletons() {
 
 export default function MechanismsList() {
   const router = useRouter();
-  const { ref, inView } = useInView();
-  const { data, status, hasNextPage, fetchNextPage, isFetchingNextPage } = useMechanismQuery();
-  const isEmpty = status === "success" && data.pages[0].mechanisms.length === 0;
+  const { mechanisms, status } = useMechanismQuery();
+  const isEmpty = status === "success" && mechanisms.length === 0;
 
   const clearFilters = () => {
     router.push("/library");
   };
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
-  useEffect(() => {
-    if (inView) {
-      fetchNextPage().then();
-    }
-  }, [inView, fetchNextPage]);
 
   if (isEmpty) {
     return (
@@ -54,46 +43,15 @@ export default function MechanismsList() {
     return <Skeletons />;
   }
 
-  if (status === "error" || !data) {
+  if (status === "error") {
     return <div>Oops, there was something wrong</div>;
   }
 
   return (
-    <>
-      <div className="w-full grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
-        {data.pages.map((page, index) => (
-          <Fragment key={`page_${index}`}>
-            {page.mechanisms.map((mechanism) => (
-              <MechanismCard key={mechanism.id} mechanism={mechanism} />
-            ))}
-          </Fragment>
-        ))}
-      </div>
-      <div className="mt-10 flex w-full justify-center">
-        {hasNextPage ? (
-          <Button
-            ref={ref}
-            variant="outline"
-            onClick={() => fetchNextPage()}
-            disabled={isFetchingNextPage}
-          >
-            {isFetchingNextPage ? "Loading..." : "View More"}
-          </Button>
-        ) : (
-          <>
-            {!isEmpty && (
-              <Button
-                className="flex items-center"
-                ref={ref}
-                variant="outline"
-                onClick={scrollToTop}
-              >
-                Back to top
-              </Button>
-            )}
-          </>
-        )}
-      </div>
-    </>
+    <div className="w-full grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
+      {mechanisms.map((mechanism) => (
+        <MechanismCard key={mechanism.slug} mechanism={mechanism} />
+      ))}
+    </div>
   );
 }

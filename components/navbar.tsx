@@ -6,15 +6,12 @@ import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Menu } from "lucide-react";
 import { Transition } from "@headlessui/react";
-import SupporterDialog from "@/components/get-involved-dialog";
-import { useAtom } from "jotai";
-import { supporterDialogAtom } from "@/state/supporter-atom";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import X from "@/components/ui/x";
+import Mail from "@/components/ui/mail";
 
 export default function Navbar() {
-  const [, setDialogOpen] = useAtom(supporterDialogAtom);
   const [open, setOpen] = useState(false);
   const activePage = usePathname();
   const isHome = activePage === "/";
@@ -45,20 +42,17 @@ export default function Navbar() {
         >
           <Link href="/library">Library</Link>
         </Typography>
-        <Typography
-          variant="nav-link"
-          onClick={() => {
-            setOpen(false);
-            setDialogOpen(true);
-          }}
-        >
-          Connect
-        </Typography>
-        <Link 
-          href="https://x.com/mechanism_inst" 
-          target="_blank" 
-          rel="noopener noreferrer"
+        <Link
+          href="mailto:hello@mechanism.institute"
           className="ml-2 transition-opacity duration-300 hover:opacity-70 text-gray-600"
+        >
+          <Mail width={18} height={18} />
+        </Link>
+        <Link
+          href="https://x.com/mechanism_inst"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-opacity duration-300 hover:opacity-70 text-gray-600"
         >
           <X width={16} height={16} />
         </Link>
@@ -91,30 +85,25 @@ export default function Navbar() {
                 Library
               </Link>
             </Typography>
-            <Typography
-              variant="nav-link"
-              onClick={() => {
-                setOpen(false);
-                setDialogOpen(true);
-              }}
+            <Link
+              href="mailto:hello@mechanism.institute"
+              className="flex items-center gap-2 transition-opacity duration-300 hover:opacity-70 text-gray-600"
+              onClick={() => setOpen(false)}
             >
-              Get Involved
-            </Typography>
-            <Typography variant="nav-link" asChild>
-              <Link 
-                href="https://x.com/mechanism_inst" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-                onClick={() => setOpen(false)}
-              >
-                <X width={16} height={16} />
-              </Link>
-            </Typography>
+              <Mail width={18} height={18} />
+            </Link>
+            <Link
+              href="https://x.com/mechanism_inst"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 transition-opacity duration-300 hover:opacity-70 text-gray-600"
+              onClick={() => setOpen(false)}
+            >
+              <X width={16} height={16} />
+            </Link>
           </Transition>
         </Dialog.Root>
       </div>
-      <SupporterDialog />
     </nav>
   );
 }

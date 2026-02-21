@@ -3,27 +3,17 @@ import CategoryTag from "@/components/ui/category-tag";
 import Link from "next/link";
 import Typography from "@/components/ui/typography";
 import ArrowLeft from "@/components/ui/arrow-left";
-import { AggregatedMechanism } from "@/types/mechanism";
-import { getMechanismsBySlug } from "@/lib/get-mechanism";
-import { getImplementations } from "@/lib/get-implementations";
-import { parseResourcesString } from "@/utils/parse-resources-string";
+import { getMechanismBySlug, getAllMechanismSlugs } from "@/lib/get-data";
 import { Separator } from "@/components/ui/separator";
 import Implementation from "@/components/implementation";
 import ReactMarkdown from "react-markdown";
 
-async function getAggregatedMechanism(slug: string) {
-  const mechanism = await getMechanismsBySlug(slug);
-  if (!mechanism) return null;
-  const implementations = await getImplementations(mechanism.implementations);
-  return {
-    ...mechanism,
-    implementations,
-    resources: parseResourcesString(mechanism.resources),
-  } satisfies AggregatedMechanism;
+export function generateStaticParams() {
+  return getAllMechanismSlugs().map((slug) => ({ id: slug }));
 }
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const mechanism = await getAggregatedMechanism(params.id);
+  const mechanism = getMechanismBySlug(params.id);
 
   if (!mechanism)
     return (
@@ -94,13 +84,17 @@ export default async function Page({ params }: { params: { id: string } }) {
                     Resources
                   </Typography>
                   <ul className="flex flex-col flex-wrap gap-4 ml-4 list-disc">
-                    {mechanism.resources.map((resource) => (
-                      <li key={resource.link}>
-                        <Typography asChild className="underline ">
-                          <Link href={resource.link} target="_blank" rel="noreferrer">
-                            {resource.name}
-                          </Link>
-                        </Typography>
+                    {mechanism.resources.map((resource, i) => (
+                      <li key={resource.url || i}>
+                        {resource.url ? (
+                          <Typography asChild className="underline ">
+                            <Link href={resource.url} target="_blank" rel="noreferrer">
+                              {resource.name}
+                            </Link>
+                          </Typography>
+                        ) : (
+                          <Typography>{resource.name}</Typography>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -112,7 +106,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                     Examples
                   </Typography>
                   {mechanism.implementations.map((implementation) => (
-                    <Implementation key={implementation.id} implementation={implementation} />
+                    <Implementation key={implementation.slug} implementation={implementation} />
                   ))}
                 </div>
               )}
