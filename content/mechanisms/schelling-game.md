@@ -9,7 +9,7 @@ implementations:
   - "DAOstack Voter Rewards/Penalties"
 resources:
   - name: "Focal Theory (game theory)"
-    url: "https://en.wikipedia.org/wiki/Focal_point_(game_theory"
+    url: "https://en.wikipedia.org/wiki/Focal_point_(game_theory)"
   - name: "An Analysis of p+ε Attacks on Various Models of Schelling Game Based Systems (William George and Clément Lesaege)"
     url: "https://cryptoeconomicsystems.pubpub.org/pub/george-schelling-attacks/release/7?readingCollection=a1e776d2"
 ---

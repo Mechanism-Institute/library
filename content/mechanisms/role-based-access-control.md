@@ -7,8 +7,6 @@ implementations:
   - "Gnosis Guild Zodiac"
   - "Hats Protocol"
 resources:
-  - name: "Role-Based Access Controls (David Ferraiolo & Richard Kuhn)"
-    url: "https://csrc.nist.gov/pubs/conference/1992/10/13/rolebased-access-controls/final"
   - name: "Role-Based Access Control (Wikipedia)"
     url: "https://en.wikipedia.org/wiki/Role-based_access_control"
 ---

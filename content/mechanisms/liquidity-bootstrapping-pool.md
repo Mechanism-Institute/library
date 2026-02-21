@@ -6,8 +6,6 @@ description: "Weighted pool that shifts token ratios over time to facilitate pri
 implementations:
   - "Perpetual Protocol"
 resources:
-  - name: "Liquidity Bootstrapping Pools (LBPs) (Balancer)"
-    url: "https://docs.balancer.fi/concepts/explore-available-balancer-pools/liquidity-bootstrapping-pool.html#liquidity-bootstrapping-pools-lbps"
   - name: "Liquidity Bootstrapping Pool (LBP) (Coinmetro)"
     url: "https://www.coinmetro.com/glossary/liquidity-bootstrapping-pool-lbp"
   - name: "What Are Liquidity Bootstrapping Pools in Decentralized Finance? (Gopal Solanky)"

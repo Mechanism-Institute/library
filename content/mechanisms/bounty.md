@@ -12,8 +12,7 @@ resources:
     url: "https://en.wikipedia.org/wiki/Bug_bounty_program"
   - name: "Bounty (CrypticOcean)"
     url: "https://www.hackquest.io/en/glossary/Bounty"
-  - name: "Your Complete Guide to Blockchain Bug Bounty Programs (Diana Ambolis)"
-    url: "https://blockchainmagazine.com/your-complete-guide-to-blockchain-bug-bounty-programs/"
+
 ---
 Bounties function as task-based incentive mechanisms where rewards are allocated upon successful completion and verification. The system typically involves three main roles: bounty creators who define tasks and provide funding, bounty hunters who complete the tasks, and verifiers who confirm task completion. Smart contracts hold the reward funds in escrow and automate payment distribution upon verification. Tasks can range from identifying security vulnerabilities to creating content or developing software features. Advanced implementations may include features like partial payments for milestone completion, tiered reward structures based on submission quality, or time-based bonuses to encourage rapid responses.
 

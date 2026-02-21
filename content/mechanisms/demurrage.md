@@ -10,7 +10,7 @@ implementations:
   - "Circles Demurrage"
 resources:
   - name: "Demurrage (currency) (Wikipedia)"
-    url: "https://en.wikipedia.org/wiki/Demurrage_(currency"
+    url: "https://en.wikipedia.org/wiki/Demurrage_(currency)"
   - name: "Demurrage (P2PF Wiki)"
     url: "https://wiki.p2pfoundation.net/Demurrage"
   - name: "Demurrage vs. Inflation (Josh Sidman - Silvio Gessell Foundation)"

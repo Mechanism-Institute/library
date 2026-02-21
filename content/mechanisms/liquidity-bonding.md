@@ -9,8 +9,6 @@ implementations:
   - "Olas Network Liquidity Bonding"
   - "Olympus DAO Liquidity Bonding"
 resources:
-  - name: "Explaining the (3, 3) Meme, Bonding, and Stablecoins (Shrimpty)"
-    url: "https://academy.shrimpy.io/post/what-is-olympus-dao-ohm-explaining-the-3-3-meme-bonding-and-stablecoins"
   - name: "Attracting Capital via Bonding (Autonolous)"
     url: "https://www.autonolas.network/blog/code-capital-attracting-capital-via-bonding"
 ---

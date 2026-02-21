@@ -13,8 +13,6 @@ implementations:
 resources:
   - name: "What is Token Gating? (Ledger)"
     url: "https://www.ledger.com/academy/topics/crypto/what-is-token-gating"
-  - name: "What is Token Gating? Benefits and Use Cases (Beatriz)"
-    url: "https://blog.crossmint.com/what-is-token-gating/"
   - name: "Everything on Token Gating (Aman Agarwal)"
     url: "https://medium.com/geekculture/everything-on-token-gating-d399b4a1681c"
 ---

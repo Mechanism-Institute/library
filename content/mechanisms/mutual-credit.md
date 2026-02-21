@@ -13,8 +13,7 @@ resources:
     url: "https://wiki.p2pfoundation.net/Mutual_Credit"
   - name: "Why the future of money is mutual credit (and not Bitcoin): Interview with Thomas H Greco Jr. (Lowimpact.org)"
     url: "https://www.lowimpact.org/posts/future-of-money-thomas-greco/"
-  - name: "The Credit Commons: A Money for the Solidarity Economy (Matthew Slater and Tim Jenkin)"
-    url: "https://creditcommons.net/assets/credit-commons.pdf"
+
 ---
 Mutual credit operates as a reciprocal accounting system in which participants extend credit to each other through bilateral IOUs or agreements. When a transaction occurs, the buyer's account is decremented (moves toward the negative) while the seller's account is incremented (moves toward the positive) by the same amount, maintaining a zero-sum system. Unlike traditional money systems that require a money supply, mutual credit creates units of value at the moment of exchange and removes them upon repayment or reverse transaction. The system typically incorporates credit limits—caps on how negative a balance can become—to mitigate default risk, with these limits often determined by factors including participant reputation, transaction history, and community vouching. Governance structures establish membership criteria and limit adjustments, while advanced implementations may include collateralization requirements for higher limits, demurrage (holding fees) to encourage circulation, or reputation systems that reward reliable repayment patterns.
 

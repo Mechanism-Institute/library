@@ -8,9 +8,7 @@ secondaryCategories:
 description: "Grants governance or economic rights in proportion to both quantity and duration of tokens locked, represented as transferable NFTs."
 implementations:
   - "Plenty vePLY"
-resources:
-  - name: "ve(3,3) (Andrew Cronje)"
-    url: "https://andrecronje.medium.com/ve-3-3-44466eaa088b"
+resources: []
 ---
 Participants lock tokens in escrow for a predetermined period to receive a vote-escrowed NFT (veNFT) that confers governance and economic rights, which can be transferred during the lockup period. At the end of the lockup period, the NFT can be redeemed for the underlying tokens. The longer the lock duration, the greater the power of the veNFT issued.
 

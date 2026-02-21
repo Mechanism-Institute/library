@@ -13,8 +13,7 @@ resources:
     url: "https://en.wikipedia.org/wiki/Initial_coin_offering"
   - name: "Initial Coin Offering (ICO): Coin Launch Defined, With Examples (Investopedia)"
     url: "https://www.investopedia.com/terms/i/initial-coin-offering-ico.asp"
-  - name: "Crowdsales (OpenZeppelin)"
-    url: "https://docs.openzeppelin.com/contracts/2.x/crowdsales"
+
 ---
 An ICO enables projects to raise capital through a token sale process where purchasers send approved assets like ETH or USDC to a designated smart contract in exchange for project tokens that can represent various rights, from access to future services to profit-sharing claims. The sale typically occurs during a specified period with either a fixed price per token or a dynamic pricing mechanism. When conducting an ICO, projects usually release a white paper detailing the venture's goals, token economics, and use of funds, allowing investors to evaluate the opportunity before participating.
 

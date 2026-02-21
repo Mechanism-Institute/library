@@ -6,8 +6,6 @@ description: "Can be redeemed at a particular value based on the outcome of spec
 implementations:
   - "Polymarket"
 resources:
-  - name: "A short primer on Conditional Tokens (Gnosis)"
-    url: "https://docs.gnosis.io/conditionaltokens/docs/introduction1"
   - name: "Conditional Tokens: Introduction to a new Asset Class (Stephan George)"
     url: "https://youtu.be/brFdf7pIYag?si=lLMu2t78kL12USHR"
   - name: "Contingency Markets (Wikipedia)"

@@ -10,8 +10,6 @@ implementations:
 resources:
   - name: "Nouns DAO Review – A Virtuous Circle of NFTs (Ivan Djordjevic)"
     url: "https://unblock.net/nouns-dao-review/"
-  - name: "The Opportunities and Limitations of Nounish DAOs (Chris Carella)"
-    url: "https://www.forefront.market/blog/nounish-daos"
   - name: "Designing a Nounish DAO: Analysis of Auction Frequency (Llama and gumfather.eth)"
     url: "https://llama.mirror.xyz/z0b3URy7KEV9ZuKpjNrOmIn8StXzL7Bvj4IC55aKEpI"
 ---

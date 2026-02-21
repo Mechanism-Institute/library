@@ -8,7 +8,7 @@ implementations:
   - "Hegic"
 resources:
   - name: "Option (finance) (Wikipedia)"
-    url: "https://en.wikipedia.org/wiki/Option_(finance"
+    url: "https://en.wikipedia.org/wiki/Option_(finance)"
   - name: "What Are Options? Types, Spreads, Example, and Risk Metrics (Investopedia)"
     url: "https://investopedia.com/terms/o/option.asp"
 ---

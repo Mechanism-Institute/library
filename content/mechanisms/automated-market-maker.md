@@ -15,8 +15,7 @@ resources:
     url: "https://chain.link/education-hub/what-is-an-automated-market-maker-amm"
   - name: "TWAMM (Paradigm)"
     url: "https://www.paradigm.xyz/2021/07/twamm"
-  - name: "TWAP (Analyzing Alpha)"
-    url: "https://analyzingalpha.com/twap"
+
 ---
 An automated market maker (AMM) replaces traditional order book matching with a deterministic pricing function. When traders want to exchange assets, they trade against a shared liquidity pool rather than being matched with counterparties. The price for each trade is determined through a mathematical formula that calculates exchange rates based on the trade size and the current ratio of assets in the pool. As one asset is removed from the pool, its relative scarcity increases, causing its price to rise according to the formula. The most common implementation uses the constant product formula (x \* y = k), where the product of token quantities must remain constant before and after trades, creating an automatic price adjustment mechanism that increases the price of assets as they are purchased and decreases it as they are sold. Liquidity providers deposit equal value of tokens into these pools and receive LP tokens representing their share, earning trading fees proportional to their contribution. This system enables continuous liquidity for any asset pair regardless of trading volume, with prices converging toward external market rates through arbitrage.
 

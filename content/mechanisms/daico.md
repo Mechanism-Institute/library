@@ -9,8 +9,7 @@ implementations:
 resources:
   - name: "Explanation of DAICOs (Vitalik Buterin)"
     url: "https://ethresear.ch/t/explanation-of-daicos/465"
-  - name: "What is a DAICO, Explained (Chrisjan Pauw)"
-    url: "https://cointelegraph.com/explained/what-is-a-daico-explained"
+
 ---
 A DAICO combines an initial coin offering (ICO) with a decentralized autonomous organization (DAO) structure. The process begins with an ICO to raise capital, after which all funds are locked into a smart contract with a "tap" mechanism that gradually releases funds to the project team at a pre-specified rate. Token holders can vote to increase this tap rate, effectively controlling the flow of funds based on the project’s progress and funding needs. If dissatisfied with the project’s direction, token holders can also vote to shut down the DAICO, returning the remaining funds to token holders.
 
