@@ -11,15 +11,15 @@ Fast-tracking shortens standard decision-making timelines when urgent action is 
 
 Traditional governance systems have long featured emergency powers and expedited procedures, from corporate boards' emergency meetings to parliamentary fast-track procedures. In blockchain, fast-tracking emerged as a solution to the inherent slowness of decentralized decision-making. Polkadot's OpenGov, through its technical committee, is one governance framework that has adopted this mechanism.
 
-Advantages
-- Rapid Response: Enables quick action on urgent proposals that cannot wait for standard governance timelines.
-- Process Flexibility: Different groups can fast-track proposals based on their expertise or stake.
-- Risk Management: Provides a structured way to handle emergencies while maintaining governance guardrails.
+**Advantages**
+- _Rapid Response_: Enables quick action on urgent proposals that cannot wait for standard governance timelines.
+- _Process Flexibility_: Different groups can fast-track proposals based on their expertise or stake.
+- _Risk Management_: Provides a structured way to handle emergencies while maintaining governance guardrails.
 
-Limitations & Risks
-- Reduced Scrutiny: Shortened review periods may prevent thorough analysis of proposal implications compared to standard governance tracks.
-- Power Concentration: Groups with fast-tracking authority can effectively bypass standard governance checks and balances.
+**Limitations & Risks**
+- _Reduced Scrutiny_: Shortened review periods may prevent thorough analysis of proposal implications compared to standard governance tracks.
+- _Power Concentration_: Groups with fast-tracking authority can effectively bypass standard governance checks and balances.
 
-Design Considerations
-- Authorization Mechanism: Define which entities can initiate fast-tracking and under what conditions. Options may include elections, where participants vote to assign emergency decision rights to specific entities, and multi-chamber governance, requiring approval from a predefined threshold of trusted participants.
-- Override Parameters: Implement mechanisms that enable the broader community to cancel or delay fast-tracked proposals when necessary. These can include veto staking, where users temporarily lock tokens to block or postpone a rushed proposal, or time-delay execution, which introduces a brief window before implementation, allowing for counter-proposals or community objections.
+**Design Considerations**
+- _Authorization Mechanism_: Define which entities can initiate fast-tracking and under what conditions. Options may include `elections`, where participants vote to assign emergency decision rights to specific entities, and `multi-chamber governance`, requiring approval from a predefined threshold of trusted participants.
+- _Override Parameters_: Implement mechanisms that enable the broader community to cancel or delay fast-tracked proposals when necessary. These can include `veto staking`, where users temporarily lock tokens to block or postpone a rushed proposal, or `time-delay execution`, which introduces a brief window before implementation, allowing for counter-proposals or community objections.

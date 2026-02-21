@@ -1,7 +1,7 @@
 ---
 name: "Optimism OP Airdrop"
-description: "Implemented a pioneering multi-phase token reward system that distributed 11.7 million OP tokens (worth approximately $28 million) to over 300,000 active participants in its governance system. The protocol's second airdrop in February 2023 specifically targeted governance participation, with 6.8 million tokens allocated to governance rewards and 2.5 million for gas fee rebates. Qualifying wallets needed at least 2,000 total \"Tokens x Days\" delegated, with rewards scaling at 0.42/365 OP per Token-Day up to 5,000 OP per address. The system also included multiplier bonuses - addresses that spent ≥ $20 on gas fees received a 2x bonus, while those with ≥ 54,367 total 'OP Delegated x Days' received a 1.1x bonus. The mechanism successfully increased participation, particularly among smaller token holders, and led to more dispersed delegation patterns, with concentration metrics (HHI) dropping from 2,277 to 710 after implementation."
-sourcecode: ""
-docs: "https://andrewbenjaminhall.com/Hall_Oak_Airdrop_Effects_on_Participation.pdf?utm_source=chatgpt.com"
-app: "https://optimism.io/"
+description: "Implemented a recurring airdrop model by conducting five major rounds since 2022, distributing approximately 250 million OP tokens in total. The first airdrop in June 2022 was the largest, distributing 200.1 million OP to 248,699 early adopters and active users. The second round in January 2023 distributed 11.7 million OP to 307,965 addresses that participated in governance and used the OP Mainnet. The third airdrop in September 2023 focused on governance participation, distributing 19.4 million OP to 31,870 addresses. The fourth round in January 2024 targeted NFT creators and traders, distributing 10.3 million OP to 22,998 addresses. The fifth round in October 2024 rewarded 54,000 addresses with 10.4 million OP for interacting with at least 20 unique Superchain contracts. Notably, Optimism still has 550 million OP tokens reserved for future airdrops."
+sourcecode: "https://optimistic.etherscan.io/address/0xfedfaf1a10335448b7fa0268f56d2b44dbd357de#code"
+docs: "https://optimism.mirror.xyz/gQWKlrDqHzdKPsB1iUnI-cVN3v0NvsWnazK7ajlt1fI"
+app: "https://community.optimism.io/docs/governance/airdrop-1/#"
 ---

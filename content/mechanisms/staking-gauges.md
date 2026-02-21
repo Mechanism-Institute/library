@@ -13,19 +13,19 @@ Staking Gauges enable token-holders to dynamically influence how much to incenti
 
 The mechanism was pioneered by Curve Finance in 2020, which introduced Staking Gauges to incentivize liquidity providers in specific pools based on community preferences. Balancer adopted a similar approach, leveraging its flexibility in pool design to integrate Staking Gauges for managing reward distributions across diverse liquidity pools. The economic value of controlling gauge weights led to the emergence of meta-protocols like Convex that aggregate voting power and create efficient markets for vote-buying, where protocols can bid for gauge weight allocation.
 
-Advantages
-- Dynamic Allocation: Enables continuous adjustment of reward distribution based on community priorities.
-- Decentralized Control: Gives token holders direct influence over incentive allocation.
-- Market-Driven Incentives: Creates competition between different project activities, potentially directing resources where they generate the highest impact.
+**Advantages**
+- _Dynamic Allocation_: Enables continuous adjustment of reward distribution based on community priorities.
+- _Decentralized Control_: Gives token holders direct influence over incentive allocation.
+- _Market-Driven Incentives_: Creates competition between different project activities, potentially directing resources where they generate the highest impact.
 
-Limitations & Risks
-- Whale Influence: Token-weighted voting can disproportionately favor large holders, potentially skewing allocations and creating artificial demand that may not align with project value.
-- Reward Dilution: Popular gauges attract more votes, potentially leading to overcrowding and diminished returns for participants in those activities.
-- Delayed Feedback: Epoch-based voting can result in delayed responses to changing market conditions, as allocations are locked until the next voting period.
-- Bribing Markets: Vote aggregators and bribing markets can capture value intended for governance, potentially redirecting emissions based on short-term profits rather than long-term protocol health.
+**Limitations & Risks**
+- _Whale Influence_: Token-weighted voting can disproportionately favor large holders, potentially skewing allocations and creating artificial demand that may not align with project value.
+- _Reward Dilution_: Popular gauges attract more votes, potentially leading to overcrowding and diminished returns for participants in those activities.
+- _Delayed Feedback_: Epoch-based voting can result in delayed responses to changing market conditions, as allocations are locked until the next voting period.
+- _Bribing Markets_: Vote aggregators and bribing markets can capture value intended for governance, potentially redirecting emissions based on short-term profits rather than long-term protocol health.
 
-Design Considerations
-- Gauge Types: Structure different gauge categories with separate allocation pools to maintain strategic control over reward distribution across activity types. Possible mechanisms include hard caps per category, ensuring specific activities receive guaranteed allocations; or tiered gauge weights, where some activities have higher baseline weightings.
-- Epoch Duration: Balance voting flexibility and operational overhead when setting the frequency of weight updates and reward distributions. Possible mechanisms include rolling epochs, where votes continuously update but take effect at predefined intervals; dynamic epoch lengths, where voting windows adjust based on market volatility or participation levels; and checkpoint-based voting, where votes are locked for a period but can be overridden if a supermajority agrees to an early adjustment.
-- Boost Parameters: Configure the relationship between lock duration, voting power, and reward multipliers to incentivize desired holding periods. Possible mechanisms include vote-escrowed token models (veTokens), where longer token lock-ups yield more voting power and rewards; or vote decay, where voting power diminishes over time unless restaked.
-- Bribe Resistance: Consider the impact of secondary bribe markets on incentive allocations, deciding whether to embrace or resist them through preventative measures. Rather than preventing bribes, some protocols opt for open bribe registries, where all bribes are transparently tracked, allowing voters to see who is influencing gauge decisions and adjust accordingly.
+**Design Considerations**
+- _Gauge Types:_ Structure different gauge categories with separate allocation pools to maintain strategic control over reward distribution across activity types. Possible mechanisms include hard caps per category, ensuring specific activities receive guaranteed allocations; or tiered gauge weights, where some activities have higher baseline weightings.
+- _Epoch Duration_: Balance voting flexibility and operational overhead when setting the frequency of weight updates and reward distributions. Possible mechanisms include rolling epochs, where votes continuously update but take effect at predefined intervals; dynamic epoch lengths, where voting windows adjust based on market volatility or participation levels; and checkpoint-based voting, where votes are locked for a period but can be overridden if a supermajority agrees to an early adjustment.
+- _Boost Parameters_: Configure the relationship between lock duration, voting power, and reward multipliers to incentivize desired holding periods. Possible mechanisms include vote-escrowed token models (veTokens), where longer token lock-ups yield more voting power and rewards; or vote decay, where voting power diminishes over time unless restaked.
+- _Bribe Resistance_: Consider the impact of secondary bribe markets on incentive allocations, deciding whether to embrace or resist them through preventative measures. Rather than preventing bribes, some protocols opt for open bribe registries, where all bribes are transparently tracked, allowing voters to see who is influencing gauge decisions and adjust accordingly.

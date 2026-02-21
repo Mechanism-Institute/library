@@ -12,16 +12,16 @@ Token-abstracted voting separates governance rights from the underlying token po
 
 Element Protocol (later rebranded to DELV) introduced token-abstracted voting in 2021 through its Council governance framework, which utilizes voting vaults to decouple voting power from direct token ownership. Snapshot’s custom voting strategies have also allowed projects to implement governance weighting based on assets held across vesting contracts, staking contracts, lending protocols, and liquidity pools on multiple chains.
 
-Advantages
-- Capital Efficiency: Enables simultaneous participation in governance and yield-generating activities.
-- Increased Participation: Removes the opportunity cost of governance participation, potentially leading to higher voter turnout.
-- Protocol Flexibility: Accommodates protocol evolution and ecosystem integration without requiring governance redesign as new token representations emerge.
+**Advantages**
+- _Capital Efficiency_: Enables simultaneous participation in governance and yield-generating activities.
+- _Increased Participation_: Removes the opportunity cost of governance participation, potentially leading to higher voter turnout.
+- _Protocol Flexibility_: Accommodates protocol evolution and ecosystem integration without requiring governance redesign as new token representations emerge.
 
-Limitations & Risks
-- Varying Risk Profiles: Different token representations may carry different risk characteristics, potentially creating imbalances in governance incentives based on risk tolerance.
-- Standardization Challenges: Lack of consistent standards across DeFi protocols can make it difficult to implement comprehensive abstraction layers that work across the entire ecosystem.
+**Limitations & Risks**
+- _Varying Risk Profiles_: Different token representations may carry different risk characteristics, potentially creating imbalances in governance incentives based on risk tolerance.
+- _Standardization Challenges_: Lack of consistent standards across DeFi protocols can make it difficult to implement comprehensive abstraction layers that work across the entire ecosystem.
 
-Design Considerations
-- Vault Architecture: Use modular voting vaults that support various token representations without modifying core governance contracts. Implement governance hooks that allow new vault types—such as staked, bridged, or wrapped tokens—to be added dynamically while ensuring backward compatibility.
-- Double-Counting Prevention: Deploy canonical registries that track voting power across multiple token representations to prevent inflation of governance influence. Consider using cross-protocol attestations where lending, staking, and liquidity providers submit verified claims of held assets to mitigate fraudulent voting power accumulation.
-- Voting Power Calculation: Establish standardized weighting mechanisms for different asset types. Use risk-adjusted multipliers that discount volatile or leveraged positions.
+**Design Considerations**
+- _Vault Architecture_: Use `modular voting vaults` that support various token representations without modifying core governance contracts. Implement `governance hooks` that allow new vault types—such as staked, bridged, or wrapped tokens—to be added dynamically while ensuring backward compatibility.
+- _Double-Counting Prevention_: Deploy `canonical registries` that track voting power across multiple token representations to prevent inflation of governance influence. Consider using `cross-protocol attestations` where lending, staking, and liquidity providers submit verified claims of held assets to mitigate fraudulent voting power accumulation.
+- _Voting Power Calculation_: Establish `standardized weighting` mechanisms for different asset types. Use `risk-adjusted multipliers` that discount volatile or leveraged positions.

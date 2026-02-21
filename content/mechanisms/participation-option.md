@@ -12,18 +12,18 @@ Participation options function as a conditional reward mechanism where participa
 
 The concept derives from traditional employee stock options in corporate structures, which have proven effective at aligning employee interests with company success since the 1950s. Employee stock options gained prominence during the 2000s tech boom, creating numerous employee millionaires through successful IPOs. Keep3r Network pioneered its use in DeFi by implementing Options Liquidity Mining, which successfully incentivized participation without immediate token emissions.
 
-Advantages
-- Dilution Protection: The protocol only issues new tokens when the price exceeds the strike price, preventing unnecessary dilution in down markets.
-- Capital Efficiency: Participants can delay capital commitment until exercise, making participation more accessible.
-- Skin-in-the-Game: Unlike airdrops, vesting, or lockups, participants must commit capital to exercise their rights, creating a natural filter for committed participants while aligning their interests with token value appreciation.
+**Advantages**
+- _Dilution Protection_: The protocol only issues new tokens when the price exceeds the strike price, preventing unnecessary dilution in down markets.
+- _Capital Efficiency_: Participants can delay capital commitment until exercise, making participation more accessible.
+- _Skin-in-the-Game_: Unlike airdrops, vesting, or lockups, participants must commit capital to exercise their rights, creating a natural filter for committed participants while aligning their interests with token value appreciation.
 
-Limitations & Risks
-- Capital Requirements: Participants must have capital ready to exercise options, potentially excluding smaller contributors who could participate in direct reward systems.
-- Participation Gaps: During bear markets, when options are out-of-money, protocols may struggle to maintain participation levels compared to fixed rewards.
-- Exercise Clustering: Mass option exercises during price peaks can create concentrated sell pressure that traditional vesting schedules would have distributed over time.
+**Limitations & Risks**
+- _Capital Requirements_: Participants must have capital ready to exercise options, potentially excluding smaller contributors who could participate in direct reward systems.
+- _Participation Gaps_: During bear markets, when options are out-of-money, protocols may struggle to maintain participation levels compared to fixed rewards.
+- _Exercise Clustering_: Mass option exercises during price peaks can create concentrated sell pressure that traditional vesting schedules would have distributed over time.
 
-Design Considerations
-- Strike Price Selection: Balance attractiveness with protocol value capture. Consider floating strike prices (adjusted via moving averages or oracles), tiered pricing (better terms for long-term contributors), or discounted pricing for active governance participants.
-- Exercise Windows: Structure vesting and redemption to prevent bottlenecks. Options include rolling vesting (batch unlocks to avoid mass exercises), epoch-based exercises (periodic windows for structured redemptions), and progressive unlocking (smaller early commitments, larger later ones).
-- Option Allocation: Distribute options based on contribution levels. Consider proof-of-participation (granted for governance or liquidity provision), performance-based distribution (earned through milestones), or vote-based allocation (community decides recipients and terms).
-- Exercise Mechanics: Prevent large-scale redemption disruptions. Look into batch auctions (grouped transactions to reduce volatility), gradual settlement (caps on daily sales), and onchain limit orders (automatic listing at preset price targets).
+**Design Considerations**
+- _Strike Price Selection_: Balance attractiveness with protocol value capture. Consider `floating strike prices` (adjusted via moving averages or oracles), `tiered pricing` (better terms for long-term contributors), or `discounted pricing` for active governance participants.
+- _Exercise Windows_: Structure vesting and redemption to prevent bottlenecks. Options include `rolling vesting` (batch unlocks to avoid mass exercises), `epoch-based` exercises (periodic windows for structured redemptions), and `progressive unlocking` (smaller early commitments, larger later ones).
+- _Option Allocation_: Distribute options based on contribution levels. Consider `proof-of-participation` (granted for governance or liquidity provision), `performance-based` distribution (earned through milestones), or `vote-based` allocation (community decides recipients and terms).
+- _Exercise Mechanics_: Prevent large-scale redemption disruptions. Look into `batch auctions` (grouped transactions to reduce volatility), `gradual settlement` (caps on daily sales), and onchain `limit orders` (automatic listing at preset price targets).

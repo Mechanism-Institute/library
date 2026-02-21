@@ -10,27 +10,27 @@ implementations:
   - "BitDegree"
 resources:
   - name: "What are Web3 Quests? (Peter Jonas)"
-    url: ""
+    url: "https://thirdwavelabs.com/blog/what-are-web3-quests/"
   - name: "Crypto Quests: What They Are, How they Work, Popular Platforms and How to Use them (Olya Apostolova)"
-    url: ""
+    url: "https://www.blockchain-ads.com/post/crypto-quest"
   - name: "Quests in Web3: What Works and What Doesn’t (rzlt)"
-    url: ""
+    url: "https://rzlt.io/quests-in-web3-what-works-and-what-doesnt/"
 ---
 Quests help to achieve system-level objectives by decomposing them into discrete, verifiable tasks that individuals can complete for predetermined rewards. Participants select from available quests, complete required actions, and receive rewards upon verification. The mechanism can incorporate achievement levels, completion streaks, or point multipliers to encourage sustained engagement. Tasks typically range from simple to complex multi-step challenges, with rewards varying based on difficulty and strategic importance to the organizing entity. Advanced implementations may include features like time-gating, difficulty progression, or cooperative elements to maintain long-term engagement and prevent reward farming.
 
 Quest mechanisms originated in role-playing games and loyalty programs, which were used to guide player progression and maintain engagement. Onchain quests emerged around 2020 as protocols sought ways to drive user engagement and education. RabbitHole pioneered their use for protocol onboarding, while subsequent platforms like Questchain introduced quest creation and verification innovations. The mechanism has since evolved into various formats, including daily tasks, seasonal campaigns, and skill-based challenges.
 
-Advantages
-- Guided Learning: Provides structured pathways for users to learn about and engage with protocols through hands-on experience.
-- Measurable Engagement: Enables precise tracking of user participation and completion rates across different task types.
-- Progressive Difficulty: Allows for a gradual increase in task complexity, helping users build expertise while maintaining engagement.
+**Advantages**
+- _Guided Learning_: Provides structured pathways for users to learn about and engage with protocols through hands-on experience.
+- _Measurable Engagement_: Enables precise tracking of user participation and completion rates across different task types.
+- _Progressive Difficulty_: Allows for a gradual increase in task complexity, helping users build expertise while maintaining engagement.
 
-Limitations & Risks
-- Sybil Attacks: Users may create multiple accounts to complete simple quests repeatedly.
-- False Engagement: Users might script automated interactions or share solution paths, bypassing the intended learning or engagement objectives while claiming rewards.
+**Limitations & Risks**
+- _Sybil Attacks_: Users may create multiple accounts to complete simple quests repeatedly.
+- _False Engagement_: Users might script automated interactions or share solution paths, bypassing the intended learning or engagement objectives while claiming rewards.
 
-Design Considerations
-- Task Structure: Balance complexity, completion time, and rewards. Consider tiered difficulty (progressing from simple to complex tasks) and multi-path quests (allowing users to choose routes based on interests or expertise).
-- Progression System: Encourage sustained engagement with milestone-based rewards. Look into XP and leveling (unlocking higher-tier quests), streak-based bonuses (rewarding consecutive participation), and quest trees (branching paths unlocking specialized rewards).
-- Verification Methods: Ensure task completion integrity based on complexity. Consider onchain proofs (verifying blockchain transactions), zero-knowledge task proofs (confirming completion without revealing data), and challenge-response tests (human interaction to prevent bots).
-- Reward Distribution: Scale rewards dynamically to maintain sustainability. Options include scaling rewards (higher incentives for early participants), reputation-weighted rewards (higher payouts for proven contributors), and seasonal reward pools (distribution based on relative participation).
+**Design Considerations**
+- _Task Structure_: Balance complexity, completion time, and rewards. Consider `tiered difficulty` (progressing from simple to complex tasks) and `multi-path quests` (allowing users to choose routes based on interests or expertise).
+- _Progression System_: Encourage sustained engagement with milestone-based rewards. Look into `XP and leveling` (unlocking higher-tier quests), `streak-based bonuses` (rewarding consecutive participation), and `quest trees` (branching paths unlocking specialized rewards).
+- _Verification Methods_: Ensure task completion integrity based on complexity. Consider `onchain proofs` (verifying blockchain transactions), `zero-knowledge task proofs` (confirming completion without revealing data), and `challenge-response tests` (human interaction to prevent bots).
+- _Reward Distribution_: Scale rewards dynamically to maintain sustainability. Options include `scaling rewards` (higher incentives for early participants), `reputation-weighted` rewards (higher payouts for proven contributors), and `seasonal` reward pools (distribution based on relative participation).

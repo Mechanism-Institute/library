@@ -1,7 +1,7 @@
 ---
 name: "Polymarket"
-description: "Utilizes Gnosis’ Conditional Token Framework to represent binary outcomes (YES and NO) for prediction markets. These are implemented as ERC1155 tokens on the Polygon network. The system utilizes three key operations: SPLIT, MERGE, and REDEEM. SPLIT allows users to create outcome tokens by dividing collateral (e.g., USDC) into equal amounts of each position token. MERGE, the inverse operation, enables users to combine a full set of outcome tokens back into collateral. REDEEM allows users to exchange winning outcome tokens for collateral after the condition is resolved and the oracle reports payouts."
+description: "Operates on the Polygon blockchain and uses binary outcome markets. Users wager in USDC and receive outcome tokens (e.g., YES/NO) representing their chosen side of a prediction. At market resolution, winning outcome tokens become redeemable for 1 USDC each, while losing tokens become worthless. Polymarket leverages a CLOB, supplemented by a FPMM as a fallback to maintain liquidity. Markets are resolved via the UMA Optimistic Oracle. Liquidity is incentivized through a rewards program for market makers who contribute to the CLOB, enhancing accuracy and user participation."
 sourcecode: ""
-docs: "https://docs.polymarket.com/#conditional-tokens-framework"
-app: ""
+docs: "https://docs.polymarket.com/#introduction"
+app: "https://polymarket.com/"
 ---
